@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sdg-laos.github.io/sdg-laos-data/en',
+  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -106,13 +106,13 @@ var translations = {
         
 
         <!--[if IE 9]>
-        <script src="/sdg-laos-indicators/assets/js/lib/classList.js"></script>
+        <script src="/site/assets/js/lib/classList.js"></script>
         <![endif]-->
 
         <!-- Favicons ================================================== -->
         <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/sdg-laos-indicators/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/sdg-laos-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        <link rel="shortcut icon" type="image/ico" href="/site/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/site/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
         http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
         -->
 
@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-laos-indicators/assets/css/style.css?v=20210131011557">
+        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210517160519">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -153,8 +153,8 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-laos-indicators/" id="home">
-      <img src="/sdg-laos-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    <a class="navbar-brand" href="/site/" id="home">
+      <img src="/site/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
     </a>
 
   <div class='hidden visible-xs float-right'>
@@ -174,7 +174,7 @@ var translations = {
       </ul>
 
       <div id="search" class="menu-target">
-  <form action="/sdg-laos-indicators/search">
+  <form action="/site/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
       <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
@@ -184,17 +184,17 @@ var translations = {
 
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/sdg-laos-indicators/goals">Goals</a>
+            <a href="/site/goals">Goals</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/reporting-status">Reporting Status</a>
+            <a href="/site/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/about">About</a>
+            <a href="/site/about">About</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/guidance">Guidance</a>
+            <a href="/site/guidance">Guidance</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/faq">FAQ</a>
+            <a href="/site/faq">FAQ</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/news">Updates</a>
+            <a href="/site/news">Updates</a>
           </li></ul>
 
       
@@ -225,7 +225,7 @@ var translations = {
   
 
   <ol class="breadcrumb">
-    <li><a href="/sdg-laos-indicators/">Home</a></li>
+    <li><a href="/site/">Home</a></li>
     <li class="active">Goal 12</li>
   </ol>
 
@@ -256,7 +256,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.1.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-1-1">Number of countries with sustainable consumption and production (SCP) national action plans or SCP mainstreamed as a priority or a target into national policies</a>
+            <a href="/site/12-1-1">Number of countries with sustainable consumption and production (SCP) national action plans or SCP mainstreamed as a priority or a target into national policies</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -290,7 +290,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.2.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-2-1">Material footprint, material footprint per capita, and material footprint per GDP</a>
+            <a href="/site/12-2-1">Material footprint, material footprint per capita, and material footprint per GDP</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -313,7 +313,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.2.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-2-2">Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP</a>
+            <a href="/site/12-2-2">Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -347,7 +347,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.3.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-3-1">Global food loss index</a>
+            <a href="/site/12-3-1">Global food loss index</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -381,7 +381,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.4.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-4-1">Number of parties to international multilateral environmental agreements on hazardous waste, and other chemicals that meet their commitments and obligations in transmitting information as required by each relevant agreement</a>
+            <a href="/site/12-4-1">Number of parties to international multilateral environmental agreements on hazardous waste, and other chemicals that meet their commitments and obligations in transmitting information as required by each relevant agreement</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -404,7 +404,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.4.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-4-2">Hazardous waste generated per capita and proportion of hazardous waste treated, by type of treatment</a>
+            <a href="/site/12-4-2">Hazardous waste generated per capita and proportion of hazardous waste treated, by type of treatment</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -438,7 +438,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.5.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-5-1">National recycling rate, tons of material recycled</a>
+            <a href="/site/12-5-1">National recycling rate, tons of material recycled</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -472,7 +472,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.6.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-6-1">Number of companies publishing sustainability reports</a>
+            <a href="/site/12-6-1">Number of companies publishing sustainability reports</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -506,7 +506,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.7.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-7-1">Number of countries implementing sustainable public procurement policies and action plans</a>
+            <a href="/site/12-7-1">Number of countries implementing sustainable public procurement policies and action plans</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -540,7 +540,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.8.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-8-1">Extent to which (i) global citizenship education and (ii) education for sustainable development (including climate change education) are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment</a>
+            <a href="/site/12-8-1">Extent to which (i) global citizenship education and (ii) education for sustainable development (including climate change education) are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -574,7 +574,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.a.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-a-1">Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies</a>
+            <a href="/site/12-a-1">Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -608,7 +608,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.b.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-b-1">Number of sustainable tourism strategies or policies and implemented action plans with agreed monitoring and evaluation tools</a>
+            <a href="/site/12-b-1">Number of sustainable tourism strategies or policies and implemented action plans with agreed monitoring and evaluation tools</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -642,7 +642,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">12.c.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/12-c-1">Amount of fossil-fuel subsidies per unit of GDP (production and consumption) and as a proportion of total national expenditure on fossil fuels</a>
+            <a href="/site/12-c-1">Amount of fossil-fuel subsidies per unit of GDP (production and consumption) and as a proportion of total national expenditure on fossil fuels</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -685,7 +685,7 @@ var translations = {
                 </li>
               
                 <li>
-                <a href="/sdg-laos-indicators/about/cookies-and-privacy/">Cookies</a>
+                <a href="/site/about/cookies-and-privacy/">Cookies</a>
                 
                 </li>
               
@@ -721,7 +721,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-laos-indicators/assets/js/sdg.js?v=20210131011557'></script><script>
+<script src='/site/assets/js/sdg.js?v=20210517160519'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sdg-laos.github.io/sdg-laos-data/en',
+  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -106,13 +106,13 @@ var translations = {
         
 
         <!--[if IE 9]>
-        <script src="/sdg-laos-indicators/assets/js/lib/classList.js"></script>
+        <script src="/site/assets/js/lib/classList.js"></script>
         <![endif]-->
 
         <!-- Favicons ================================================== -->
         <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/sdg-laos-indicators/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/sdg-laos-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        <link rel="shortcut icon" type="image/ico" href="/site/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/site/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
         http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
         -->
 
@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-laos-indicators/assets/css/style.css?v=20210131011557">
+        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210517160519">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -153,8 +153,8 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-laos-indicators/" id="home">
-      <img src="/sdg-laos-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    <a class="navbar-brand" href="/site/" id="home">
+      <img src="/site/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
     </a>
 
   <div class='hidden visible-xs float-right'>
@@ -174,7 +174,7 @@ var translations = {
       </ul>
 
       <div id="search" class="menu-target">
-  <form action="/sdg-laos-indicators/search">
+  <form action="/site/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
       <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
@@ -184,17 +184,17 @@ var translations = {
 
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/sdg-laos-indicators/goals">Goals</a>
+            <a href="/site/goals">Goals</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/reporting-status">Reporting Status</a>
+            <a href="/site/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/about">About</a>
+            <a href="/site/about">About</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/guidance">Guidance</a>
+            <a href="/site/guidance">Guidance</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/faq">FAQ</a>
+            <a href="/site/faq">FAQ</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/news">Updates</a>
+            <a href="/site/news">Updates</a>
           </li></ul>
 
       
@@ -225,7 +225,7 @@ var translations = {
   
 
   <ol class="breadcrumb">
-    <li><a href="/sdg-laos-indicators/">Home</a></li>
+    <li><a href="/site/">Home</a></li>
     <li class="active">Goal 16</li>
   </ol>
 
@@ -256,7 +256,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.1.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-1-1">Number of victims of intentional homicide per 100,000 population, by sex and age</a>
+            <a href="/site/16-1-1">Number of victims of intentional homicide per 100,000 population, by sex and age</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -279,7 +279,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.1.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-1-2">Conflict-related deaths per 100,000 population, by sex, age and cause</a>
+            <a href="/site/16-1-2">Conflict-related deaths per 100,000 population, by sex, age and cause</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -302,7 +302,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.1.3</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-1-3">Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months</a>
+            <a href="/site/16-1-3">Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -325,7 +325,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.1.4</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-1-4">Proportion of population that feel safe walking alone around the area they live</a>
+            <a href="/site/16-1-4">Proportion of population that feel safe walking alone around the area they live</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -359,7 +359,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.2.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-2-1">Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month</a>
+            <a href="/site/16-2-1">Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -382,7 +382,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.2.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-2-2">Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation</a>
+            <a href="/site/16-2-2">Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -405,7 +405,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.2.3</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-2-3">Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18</a>
+            <a href="/site/16-2-3">Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -439,7 +439,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.3.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-3-1">Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms</a>
+            <a href="/site/16-3-1">Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -462,7 +462,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.3.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-3-2">Unsentenced detainees as a proportion of overall prison population</a>
+            <a href="/site/16-3-2">Unsentenced detainees as a proportion of overall prison population</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -496,7 +496,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.4.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-4-1">Total value of inward and outward illicit financial flows (in current United States dollars)</a>
+            <a href="/site/16-4-1">Total value of inward and outward illicit financial flows (in current United States dollars)</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -519,7 +519,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.4.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-4-2">Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments</a>
+            <a href="/site/16-4-2">Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -553,7 +553,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.5.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-5-1">Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months</a>
+            <a href="/site/16-5-1">Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -576,7 +576,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.5.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-5-2">Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months</a>
+            <a href="/site/16-5-2">Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -610,7 +610,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.6.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-6-1">Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)</a>
+            <a href="/site/16-6-1">Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -633,7 +633,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.6.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-6-2">Proportion of population satisfied with their last experience of public services</a>
+            <a href="/site/16-6-2">Proportion of population satisfied with their last experience of public services</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -667,7 +667,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.7.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-7-1">Proportions of positions (by sex, age, persons with disabilities and population groups) in public institutions (national and local legislatures, public service, and judiciary) compared to national distributions</a>
+            <a href="/site/16-7-1">Proportions of positions (by sex, age, persons with disabilities and population groups) in public institutions (national and local legislatures, public service, and judiciary) compared to national distributions</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -690,7 +690,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.7.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-7-2">Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group</a>
+            <a href="/site/16-7-2">Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -724,7 +724,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.8.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-8-1">Proportion of members and voting rights of developing countries in international organizations</a>
+            <a href="/site/16-8-1">Proportion of members and voting rights of developing countries in international organizations</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -758,7 +758,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.9.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-9-1">Proportion of children under 5 years of age whose births have been registered with a civil authority, by age</a>
+            <a href="/site/16-9-1">Proportion of children under 5 years of age whose births have been registered with a civil authority, by age</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -792,7 +792,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.a.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-a-1">Existence of independent national human rights institutions in compliance with the Paris Principles</a>
+            <a href="/site/16-a-1">Existence of independent national human rights institutions in compliance with the Paris Principles</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -826,7 +826,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.b.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-b-1">Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</a>
+            <a href="/site/16-b-1">Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -860,7 +860,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.10.1</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-10-1">Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months</a>
+            <a href="/site/16-10-1">Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -883,7 +883,7 @@ var translations = {
 
           <div class="col-md-1 col-md-offset-1">16.10.2</div>
           <div class="col-md-8">
-            <a href="/sdg-laos-indicators/16-10-2">Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information</a>
+            <a href="/site/16-10-2">Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information</a>
           </div>
           <div class="col-md-2 status-column">
             <span class="status notstarted">
@@ -926,7 +926,7 @@ var translations = {
                 </li>
               
                 <li>
-                <a href="/sdg-laos-indicators/about/cookies-and-privacy/">Cookies</a>
+                <a href="/site/about/cookies-and-privacy/">Cookies</a>
                 
                 </li>
               
@@ -962,7 +962,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-laos-indicators/assets/js/sdg.js?v=20210131011557'></script><script>
+<script src='/site/assets/js/sdg.js?v=20210517160519'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

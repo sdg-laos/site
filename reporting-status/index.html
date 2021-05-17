@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sdg-laos.github.io/sdg-laos-data/en',
+  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -106,13 +106,13 @@ var translations = {
         
 
         <!--[if IE 9]>
-        <script src="/sdg-laos-indicators/assets/js/lib/classList.js"></script>
+        <script src="/site/assets/js/lib/classList.js"></script>
         <![endif]-->
 
         <!-- Favicons ================================================== -->
         <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/sdg-laos-indicators/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/sdg-laos-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        <link rel="shortcut icon" type="image/ico" href="/site/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/site/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
         http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
         -->
 
@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-laos-indicators/assets/css/style.css?v=20210131011557">
+        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210517160519">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -153,8 +153,8 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-laos-indicators/" id="home">
-      <img src="/sdg-laos-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    <a class="navbar-brand" href="/site/" id="home">
+      <img src="/site/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
     </a>
 
   <div class='hidden visible-xs float-right'>
@@ -174,7 +174,7 @@ var translations = {
       </ul>
 
       <div id="search" class="menu-target">
-  <form action="/sdg-laos-indicators/search">
+  <form action="/site/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
       <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
@@ -184,17 +184,17 @@ var translations = {
 
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/sdg-laos-indicators/goals">Goals</a>
+            <a href="/site/goals">Goals</a>
           </li><li class="nav-link active">
-            <a href="/sdg-laos-indicators/reporting-status">Reporting Status</a>
+            <a href="/site/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/about">About</a>
+            <a href="/site/about">About</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/guidance">Guidance</a>
+            <a href="/site/guidance">Guidance</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/faq">FAQ</a>
+            <a href="/site/faq">FAQ</a>
           </li><li class="nav-link ">
-            <a href="/sdg-laos-indicators/news">Updates</a>
+            <a href="/site/news">Updates</a>
           </li></ul>
 
       
@@ -256,13 +256,13 @@ var translations = {
 
   <div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/1">
+          <a href="/site/1">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/1">No poverty</a>
+            <a href="/site/1">No poverty</a>
             <span class="total">14 indicators</span>
           </h3>
           <div class="summary">
@@ -296,13 +296,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/2">
+          <a href="/site/2">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/2">Zero hunger</a>
+            <a href="/site/2">Zero hunger</a>
             <span class="total">13 indicators</span>
           </h3>
           <div class="summary">
@@ -336,13 +336,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/3">
+          <a href="/site/3">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/3">Good health and well-being</a>
+            <a href="/site/3">Good health and well-being</a>
             <span class="total">27 indicators</span>
           </h3>
           <div class="summary">
@@ -376,13 +376,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/4">
+          <a href="/site/4">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/4">Quality education</a>
+            <a href="/site/4">Quality education</a>
             <span class="total">11 indicators</span>
           </h3>
           <div class="summary">
@@ -416,13 +416,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/5">
+          <a href="/site/5">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/5">Gender equality</a>
+            <a href="/site/5">Gender equality</a>
             <span class="total">14 indicators</span>
           </h3>
           <div class="summary">
@@ -456,13 +456,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/6">
+          <a href="/site/6">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/6">Clean water and sanitation</a>
+            <a href="/site/6">Clean water and sanitation</a>
             <span class="total">11 indicators</span>
           </h3>
           <div class="summary">
@@ -496,13 +496,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/7">
+          <a href="/site/7">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/7">Affordable and clean energy</a>
+            <a href="/site/7">Affordable and clean energy</a>
             <span class="total">6 indicators</span>
           </h3>
           <div class="summary">
@@ -536,13 +536,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/8">
+          <a href="/site/8">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/8">Decent jobs and economic growth</a>
+            <a href="/site/8">Decent jobs and economic growth</a>
             <span class="total">17 indicators</span>
           </h3>
           <div class="summary">
@@ -576,13 +576,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/9">
+          <a href="/site/9">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/9">Industry, innovation and infrastructure</a>
+            <a href="/site/9">Industry, innovation and infrastructure</a>
             <span class="total">12 indicators</span>
           </h3>
           <div class="summary">
@@ -616,13 +616,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/10">
+          <a href="/site/10">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/10">Reduced inequalities</a>
+            <a href="/site/10">Reduced inequalities</a>
             <span class="total">11 indicators</span>
           </h3>
           <div class="summary">
@@ -656,13 +656,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/11">
+          <a href="/site/11">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities &amp; communities - Goal 11" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/11">Sustainable cities & communities</a>
+            <a href="/site/11">Sustainable cities & communities</a>
             <span class="total">15 indicators</span>
           </h3>
           <div class="summary">
@@ -696,13 +696,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/12">
+          <a href="/site/12">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/12">Responsible consumption and production</a>
+            <a href="/site/12">Responsible consumption and production</a>
             <span class="total">13 indicators</span>
           </h3>
           <div class="summary">
@@ -736,13 +736,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/13">
+          <a href="/site/13">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/13">Climate action</a>
+            <a href="/site/13">Climate action</a>
             <span class="total">8 indicators</span>
           </h3>
           <div class="summary">
@@ -776,13 +776,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/14">
+          <a href="/site/14">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/14">Life below water</a>
+            <a href="/site/14">Life below water</a>
             <span class="total">10 indicators</span>
           </h3>
           <div class="summary">
@@ -816,13 +816,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/15">
+          <a href="/site/15">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/15">Life on land</a>
+            <a href="/site/15">Life on land</a>
             <span class="total">14 indicators</span>
           </h3>
           <div class="summary">
@@ -856,13 +856,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/16">
+          <a href="/site/16">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/16">Peace and justice - strong institutions</a>
+            <a href="/site/16">Peace and justice - strong institutions</a>
             <span class="total">23 indicators</span>
           </h3>
           <div class="summary">
@@ -896,13 +896,13 @@ var translations = {
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-laos-indicators/17">
+          <a href="/site/17">
             <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-laos-indicators/17">Partnerships for the goals</a>
+            <a href="/site/17">Partnerships for the goals</a>
             <span class="total">25 indicators</span>
           </h3>
           <div class="summary">
@@ -967,7 +967,7 @@ var translations = {
                 </li>
               
                 <li>
-                <a href="/sdg-laos-indicators/about/cookies-and-privacy/">Cookies</a>
+                <a href="/site/about/cookies-and-privacy/">Cookies</a>
                 
                 </li>
               
@@ -1003,7 +1003,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-laos-indicators/assets/js/sdg.js?v=20210131011557'></script><script>
+<script src='/site/assets/js/sdg.js?v=20210517160519'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
