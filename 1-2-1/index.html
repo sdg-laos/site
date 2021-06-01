@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="lo" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -11,12 +11,18 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/en',
+  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/lo',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
   chartConfigAlter: function(callback) {
     this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
   },
 
   // A hook which can be replaced to alter whether/how the values that are
@@ -26,7 +32,13 @@ var opensdg = {
     return value;
   },
 
-  language: 'en',
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  language: 'lo',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -90,11 +102,15 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Indicator 1.2.1 - Goal 1
-          
-        </title>
+        
+    <title>
+        
+        ຕົວຊີ້ວັດ 1.2.1 -
+        
+        ອັດຕາສ່ວນຂອງພົນລະເມືອງທີ່ ດຳ ລົງຊີວິດຕໍ່າກວ່າເສັ້ນຄວາມທຸກຍາກແຫ່ງຊາດ, ໂດຍເພດແລະອາຍຸ - Indicators For The Sustainable Development Goals
+    </title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210601001630">
+        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210601011642">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -132,103 +148,285 @@ var translations = {
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
+        
+
     </head>
-<body class="language-en layout-indicator">
+<body class="language-lo
+layout-indicator
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<script>translations['header'] = {"alpha":"ບໍ່ມີເພດ;","default_contrast":"ກົງກັນຂ້າມໃນຕອນຕົ້ນ","disable_high_contrast":"ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ","disclaimer":"ນີ້ແມ່ນເວບໄຊທ໌ການພັດທະນາ. ພວກເຮົາຍິນດີຮັບ ຄຳ ຄິດເຫັນ <a href=\"mailto:%email_address\"> ຂອງທ່ານ </a>.","enable_high_contrast":"ເປີດໃຊ້ຄວາມຄົມຊັດສູງ","high_contrast":"ກົງກັນຂ້າມສູງ","skip_link":"ຂ້າມໄປຫາເນື້ອຫາຫຼັກ","tag_line":"17 ເປົ້າ ໝາຍ ໃນການຫັນປ່ຽນໂລກຂອງພວກເຮົາ","toggle_menu":"ເມນູປິດ. ກົດເພື່ອຂະຫຍາຍຫຼືຫຍໍ້ເມນູ.","toggle_search":"ຄົ້ນຫາສະຫຼັບ. ກົດເພື່ອຂະຫຍາຍຫຼືຍຸບແຖບຄົ້ນຫາ."};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">ຂ້າມໄປຫາເນື້ອຫາຫຼັກ</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
-    <strong class="phase-tag">Alpha</strong>
+  <div class="disclaimer-alert">
+    <strong class="phase-tag">EXAMPLE</strong>
     
-    This is a development website. We welcome your <a href="mailto:test@example.com">feedback</a>.
+    This site is an unofficial example for demonstrational purposes only.
   </div>
 </div>
 
 </div>
 
-<header role="banner">
+<header role="banner" class="header-menu-left-aligned">
   <div class="container">
 
-    <a class="navbar-brand" href="/site/" id="home">
-      <img src="/site/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/site/" id="home">
+    <img src="/site/assets/img/SDG_logo.png" alt="ເປົ້າ ໝາຍ ການພັດທະນາແບບຍືນຍົງ - 17 ເປົ້າ ໝາຍ ໃນການຫັນປ່ຽນໂລກຂອງພວກເຮົາ" />
+</a>
+      <div class="mobile-widgets">
+    <ul id='accessibility-nav' class='contrast-switcher'>
+        
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           aria-label="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
 
-    <nav class="navbar navbar-default" id="main-nav">
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           aria-label="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
 
-      <ul class="top-level">
-        <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
-        </li>
-        <li><span data-target="search">Search</span></li>
-      </ul>
+        >A</a>
+    </li>
 
+
+    </ul><div class="language-toggle-mobile">
+        <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">ພາສາລາວ</span>
+      <span class="language-abbreviation">lo</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/site/en/1-2-1/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+    </div></div>
+    </div>
+
+    <div class="search-and-desktop-widgets">
       <div id="search" class="menu-target">
   <form action="/site/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <label class="sr-only" for="indicator_search">ຄົ້ນຫາ</label>
+    <input type="text" name="q" id="indicator_search" title="ຄົ້ນຫາ" /><!--
+    --><button aria-label="ຄົ້ນຫາ" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/site/goals">Goals</a>
-          </li><li class="nav-link ">
-            <a href="/site/reporting-status">Reporting Status</a>
-          </li><li class="nav-link ">
-            <a href="/site/about">About</a>
-          </li><li class="nav-link ">
-            <a href="/site/guidance">Guidance</a>
-          </li><li class="nav-link ">
-            <a href="/site/faq">FAQ</a>
-          </li><li class="nav-link ">
-            <a href="/site/news">Updates</a>
-          </li></ul>
+      <div class="navbar navbar-default widgets-without-menu">
+        <ul class="nav navbar-nav contrast-switcher"><li class="language-toggle-menu-header">
+            
 
-      
 
-    </nav>
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-links"></i>
+  <ul class="language-toggle-links"><li>
+      <a class="language-toggle-link" href="/site/en/1-2-1/"><span class="language-name">English</span>
+        <span class="language-abbreviation">en</span></a>
+    </li></ul>
+</div>
+
+
+
+        </li>
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           aria-label="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           aria-label="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="navbar navbar-default menu-without-widgets" id="main-nav">
+      <ul class="top-level">
+    <li id="menuToggle"
+        aria-label="ເມນູປິດ. ກົດເພື່ອຂະຫຍາຍຫຼືຫຍໍ້ເມນູ."
+        aria-haspopup="true">
+        <button data-target="menu-mobile" aria-expanded="false">ເມນູ</button>
+        <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/site/goals">ເປົ້າ ໝາຍ</a>
+</li><li class="nav-link ">
+    <a href="/site/reporting-status">ສະຖານະພາບການລາຍງານ</a>
+</li><li class="nav-link ">
+    <a href="/site/about">ກ່ຽວກັບ</a>
+</li><li class="nav-link ">
+    <a href="/site/guidance">ການຊີ້ ນຳ</a>
+</li><li class="nav-link ">
+    <a href="/site/faq">ຄຳ ຖາມທີ່ຖາມ</a>
+</li><li class="nav-link ">
+    <a href="/site/news">ການປັບປຸງ</a>
+</li><li class="language-toggle-menu-header">
+    
+
+
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-links"></i>
+  <ul class="language-toggle-links"><li>
+      <a class="language-toggle-link" href="/site/en/1-2-1/"><span class="language-name">English</span>
+        <span class="language-abbreviation">en</span></a>
+    </li></ul>
+</div>
+
+
+
+</li>
+
+
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           aria-label="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           aria-label="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+
+</ul>
+
+    </li>
+    <li id="searchToggle"
+        aria-label="ຄົ້ນຫາສະຫຼັບ. ກົດເພື່ອຂະຫຍາຍຫຼືຍຸບແຖບຄົ້ນຫາ."
+        aria-haspopup="true">
+        <button data-target="search-mobile" aria-expanded="false">ຄົ້ນຫາ</button>
+        <div id="search-mobile" class="menu-target">
+  <form action="/site/search">
+    <label class="sr-only" for="indicator_search-mobile">ຄົ້ນຫາ</label>
+    <input type="text" name="q" id="indicator_search-mobile" title="ຄົ້ນຫາ" /><!--
+    --><button aria-label="ຄົ້ນຫາ" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+    </li>
+</ul>
+      <ul class="nav navbar-nav menu-target " id="menu"><li class="nav-link ">
+    <a href="/site/goals">ເປົ້າ ໝາຍ</a>
+</li><li class="nav-link ">
+    <a href="/site/reporting-status">ສະຖານະພາບການລາຍງານ</a>
+</li><li class="nav-link ">
+    <a href="/site/about">ກ່ຽວກັບ</a>
+</li><li class="nav-link ">
+    <a href="/site/guidance">ການຊີ້ ນຳ</a>
+</li><li class="nav-link ">
+    <a href="/site/faq">ຄຳ ຖາມທີ່ຖາມ</a>
+</li><li class="nav-link ">
+    <a href="/site/news">ການປັບປຸງ</a>
+</li>
+
+</ul>
+
+    </div>
+
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
+
+
 
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
-      <div class="bar">
-        <div class="selected"></div>
-      </div>
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">ສະແດງ ໝວດ ຍ່ອຍ: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
       <div class="variable-options">
-        <div>
-          <button data-type="select">Select all</button>
-          <button data-type="clear">Clear all</button>
-        </div>
-        <% _.each(fieldItem.values, function(item) { %>
-          <label>
-            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
-          </label>
-        <% }); %>
+        <fieldset>
+          <legend class="sr-only">ປະເພດຍ່ອຍ - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">ເລືອກທັງຫມົດ</button>
+            <button data-type="clear">ລ້າງທຸກຢ່າງ</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
       </div>
 
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">ສາມາດໃຊ້ໄດ້ເມື່ອ '% field' ຖືກເລືອກ
         </div>
-        <div class="no-data-hint">
-          No options available because of filters above
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          ບໍ່ມີທາງເລືອກໃດໆເພາະຕົວກອງຂ້າງເທິງ
         </div>
       <% }%>
 
@@ -238,44 +436,74 @@ var translations = {
 
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
-    <h4>Units type</h4>
-    <% _.each(units, function(unitsItem, index) { %>
-      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
-    <% }); %>
+    <h4>ຫົວ ໜ່ວຍ ວັດແທກ</h4>
+    <fieldset>
+      <legend class="sr-only">ຫົວ ໜ່ວຍ ວັດແທກ</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"annotation_2030_target":"2030 Target","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_configuration":"Edit Configuration","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_search":"Search","map_search_hide":"Hide search","map_search_show":"Show search","map_year_slider":"Year slider","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","unit":"Unit","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script type="text/template" id="series_template">
+  <% if(serieses.length) { %>
+    <h4>ຊຸດ</h4>
+    <fieldset>
+      <legend class="sr-only">ຊຸດ</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
+  <% } %>
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"ເປົ້າ ໝາຍ ປີ 2030","announce_data_added":"ຕາຕະລາງແລະຕາຕະລາງທີ່ຖືກປັບປຸງເພື່ອປະກອບມີຂໍ້ມູນ.","announce_data_not_available":"ຕາຕະລາງແລະຕາຕະລາງບໍ່ມີຂໍ້ມູນ.","announce_data_removed":"ຕາຕະລາງແລະຕາຕະລາງຖືກປັບປຸງເພື່ອຍົກເວັ້ນຂໍ້ມູນ.","chart":"ຕາຕະລາງ","chart_annotation":"ຄຳ ບັນຍາຍຕາຕະລາງ","clear_all":"ລ້າງທຸກຢ່າງ","clear_selections":"ເລືອກທີ່ຈະແຈ້ງ","data_keyboard_navigation":"ກົດເຂົ້າເພື່ອຄົ້ນຫາຈຸດຂໍ້ມູນດ້ວຍປຸ່ມລູກສອນຊ້າຍແລະຂວາ.","data_not_available":"ຂໍ້ມູນນີ້ບໍ່ມີ. ກະລຸນາເລືອກຂໍ້ມູນທາງເລືອກເພື່ອສະແດງ.","data_tabular_alternative":"ສຳ ລັບຕົວເລືອກຂໍ້ມູນຕາຕະລາງເບິ່ງຕາຕະລາງຕາຕະລາງ.","dataset_size_warning":"ມີຊຸດຂໍ້ມູນຫຼາຍເກີນໄປທີ່ຈະສະແດງໃນຕາຕະລາງ. ບໍ່ແມ່ນທັງ ໝົດ ຈະຖືກສະແດງຈົນກວ່າທ່ານຈະເລືອກບາງຕົວເລືອກ.","download_chart":"ດາວໂຫລດຕາຕະລາງ CSV","download_chart_image":"ດາວໂຫລດຮູບພາບຕາຕະລາງ","download_chart_image_title":"ດາວໂຫລດຕາຕະລາງເປັນຮູບພາບ","download_csv":"ດາວໂຫລດ CSV","download_csv_title":"ດາວໂຫລດເປັນ CSV","download_geojson":"ດາວໂຫລດ GeoJSON","download_geojson_title":"ດາວໂຫລດເປັນ GeoJSON","download_headline":"ດາວໂຫລດຫົວເລື່ອງ CSV","download_headline_title":"ດາວໂຫລດຂໍ້ມູນຫົວຂໍ້ເປັນ CSV","download_source":"ແຫລ່ງດາວໂຫລດ CSV","download_source_sdmx":"ແຫລ່ງດາວໂຫລດ SDMX","download_source_sdmx_title":"ດາວໂຫລດຂໍ້ມູນແຫຼ່ງທີ່ເປັນ SDMX","download_source_title":"ດາວໂຫລດຂໍ້ມູນແຫຼ່ງຂໍ້ມູນເປັນ CSV","download_table":"ດາວໂຫລດຕາຕະລາງ CSV","edit":"ແກ້ໄຂ","edit_configuration":"ແກ້ໄຂການຕັ້ງຄ່າ","edit_data":"ແກ້ໄຂຂໍ້ມູນ","edit_metadata":"ແກ້ໄຂເມຕາເດຕາ","footnote":"ໝາຍ ເຫດ","geographical_area":"ເຂດພູມສາດ","global_metadata":"Metadata ທົ່ວໂລກ","global_metadata_blurb":"ຕາຕະລາງນີ້ສະ ໜອງ ຂໍ້ມູນກ່ຽວກັບຂໍ້ມູນ metadata ສຳ ລັບຕົວຊີ້ວັດ SDG ຕາມທີ່ ກຳ ນົດໂດຍຄະນະ ກຳ ມະການສະຖິຕິຂອງສະຫະປະຊາຊາດ. <a href=\"https://unstats.un.org/sdgs/metadata/\"> ຂໍ້ມູນ metadata ທົ່ວໂລກ </a> ແມ່ນໃຫ້ໂດຍພະແນກສະຖິຕິຂອງສະຫະປະຊາຊາດ.","legend_help":"ກົດທີ່ເທບນິຍາຍເພື່ອ ກຳ ນົດເສັ້ນສ່ວນຕົວອອກຈາກຕາຕະລາງ.","loading":"ກຳ ລັງໂຫລດ","loading_map":"ກຳ ລັງໂຫລດແຜນທີ່","map":"ແຜນທີ່","map_search":"ຄົ້ນຫາ","map_search_hide":"ເຊື່ອງການຄົ້ນຫາ","map_search_show":"ສະແດງການຄົ້ນຫາ","map_year_slider":"ແຖບເລື່ອນປີ","national_metadata":"Metadata ແຫ່ງຊາດ","national_metadata_blurb":"ຕາຕະລາງນີ້ສະ ໜອງ metadata ສຳ ລັບຕົວຊີ້ວັດຕົວຈິງທີ່ມີຈາກສະຖິຕິ% country_name ທີ່ຢູ່ໃກ້ກັບຕົວຊີ້ວັດ SDG ທົ່ວໂລກທີ່ສອດຄ້ອງກັນ. ກະລຸນາຮັບຊາບວ່າເຖິງແມ່ນວ່າຕົວຊີ້ວັດ SDG ທົ່ວໂລກສາມາດ ນຳ ໃຊ້ໄດ້ຢ່າງເຕັມສ່ວນຈາກສະຖິຕິ% country_adjective, ຕາຕະລາງນີ້ຄວນໄດ້ຮັບການປຶກສາຫາລືກ່ຽວກັບຂໍ້ມູນກ່ຽວກັບວິທີການແຫ່ງຊາດແລະຂໍ້ມູນ metadata ອື່ນໆ% country_adjective.","next":"ຕົວຊີ້ວັດຕໍ່ໄປ","no_data_hint":"ບໍ່ມີທາງເລືອກໃດໆເພາະຕົວກອງຂ້າງເທິງ","plot_legend_description":"ນິທານເລື່ອງດິນຕອນ: ບັນຊີລາຍຊື່ຂອງສາຍລວມຢູ່ໃນຕາຕະລາງ","previous":"ຕົວຊີ້ວັດທີ່ຜ່ານມາ","select_all":"ເລືອກທັງຫມົດ","series":"ຊຸດ","series_help":"ເລືອກປະເພດຕ່າງໆຈາກແບບເລື່ອນລົງລຸ່ມເພື່ອເບິ່ງລາຍລະອຽດຕ່າງໆຂອງຂໍ້ມູນ. ບາງບ່ອນຈະບໍ່ສາມາດໃຊ້ໄດ້ຈົນກວ່າລະດັບທີ່ສູງກວ່າຈະຖືກຄັດເລືອກ.","source":"ແຫຼ່ງຂໍ້ມູນ","sources":"ແຫຼ່ງຂໍ້ມູນ","status":"ສະຖານະພາບຕົວຊີ້ວັດ","sub_categories":"ປະເພດຍ່ອຍ","sub_categories_show":"ສະແດງ ໝວດ ຍ່ອຍ:","table":"ຕາຕະລາງ","table_column_sort":"ກົດເພື່ອຈັດຮຽງຕາມຖັນນີ້","tags":"ປ້າຍ","unit":"ຫົວໜ່ວຍ","unit_of_measurement":"ຫົວ ໜ່ວຍ ວັດແທກ","units_type":"ປະເພດຫົວ ໜ່ວຍ","variable_hint":"ສາມາດໃຊ້ໄດ້ເມື່ອ '% field' ຖືກເລືອກ","view_indicator_list":"ເບິ່ງລາຍການຕົວຊີ້ວັດຂອງເປົ້າ ໝາຍ ນີ້"};</script>
 
 <script>translations['data'] = null;</script>
 
 
+<div class="container">
+  
+<ol class="breadcrumb">
+  
+  <li><a href="/site/">ເຮືອນ</a></li>
+  <li><a href="/site/goals">ເປົ້າ ໝາຍ</a></li>
+  
+  <li><a href="/site/1" title="ຢຸດຕິຄວາມທຸກຍາກໃນທຸກຮູບແບບຂອງມັນຢູ່ທົ່ວທຸກແຫ່ງ">ເປົ້າ ໝາຍ 1</a></li>
+  
+</ol>
+
+
+  
+</div>
 <div class="heading goal-banner indicator goal-1">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
-        <a href="/site/1" title="View this goal's indicator list">
-          <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/1.png" alt="No poverty - Goal 1" />
+      
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+        <a href="/site/1" title="ເບິ່ງລາຍການຕົວຊີ້ວັດຂອງເປົ້າ ໝາຍ ນີ້">
+          <img src="https://open-sdg.org/sdg-translations/assets/img/goals/lo/1.png" alt="ບໍ່ມີຄວາມທຸກຍາກ - ເປົ້າ ໝາຍ 1" id="goal-1" class="goal-icon-image goal-icon-image-"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
+      
         <div>
-          <h1>Indicator 1.2.1</h1>
-          <p class="lead-copy">Proportion of population living below the national poverty line, by sex and age</p>
+          <h1>
+            
+            ຕົວຊີ້ວັດ 1.2.1
+            
+            <span class="lead-copy">ອັດຕາສ່ວນຂອງພົນລະເມືອງທີ່ ດຳ ລົງຊີວິດຕໍ່າກວ່າເສັ້ນຄວາມທຸກຍາກແຫ່ງຊາດ, ໂດຍເພດແລະອາຍຸ</span>
+          </h1>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-1">
-  <ol class="breadcrumb">
-  <li><a href="/site/">Home</a></li>
-  <li><a href="/site/1" title="End poverty in all its forms everywhere">Goal 1</a></li>
-  <li class="active">Indicator 1.2.1</li>
-</ol>
-
+<div id="main-content" class="container goal-1" role="main">
   
 
   
@@ -284,25 +512,16 @@ var translations = {
 
 
   
-
-
-
-
-
 
 
 <div class="row"
   id="indicatorData"
   data-indicatorid='indicator_1-2-1'
   data-id="1-2-1"
-  data-country="Laos"
-  data-charttitle="Proportion of population living below the national poverty line, by sex and age"
+  data-country="Lao PDR"
+  data-charttitle="ອັດຕາສ່ວນຂອງພົນລະເມືອງທີ່ ດຳ ລົງຊີວິດຕໍ່າກວ່າເສັ້ນຄວາມທຸກຍາກແຫ່ງຊາດ, ໂດຍເພດແລະອາຍຸ"
   data-charttitles="null"
   data-measurementunit=""
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea=""
-  data-footnote=""
   data-showdata="false"
   data-graphtype="line"
   data-geocoderegex=""
@@ -310,6 +529,10 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-indicatordownloads="null"
+  data-compositebreakdownlabel=""
+  data-precision="null"
 >
   
   <div id="indicator-main" class="indicator-main col-md-12">
@@ -317,31 +540,33 @@ var translations = {
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
   <li role="presentation" class="nav-item active">
-  <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to National Metadata tab"
->National Metadata</a>
+>Metadata ແຫ່ງຊາດ</a>
 </li>
+
 <li role="presentation" class="nav-item">
-  <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-global" href="#global" aria-controls="global" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Global Metadata tab"
->Global Metadata</a>
+>Metadata ທົ່ວໂລກ</a>
 </li>
+
 <li role="presentation" class="nav-item">
-  <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-sources" href="#sources" aria-controls="sources" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Sources tab"
->Sources</a>
+>ແຫຼ່ງຂໍ້ມູນ</a>
 </li>
 
 
   
   <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+    <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">ແກ້ໄຂ</a>
   </li>
   
 </ul>
@@ -355,7 +580,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Laos statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Laotian statistics, this table should be consulted for information on national methodology and other Laotian-specific metadata information.
+        ຕາຕະລາງນີ້ສະ ໜອງ metadata ສຳ ລັບຕົວຊີ້ວັດຕົວຈິງທີ່ມີຈາກສະຖິຕິ% country_name ທີ່ຢູ່ໃກ້ກັບຕົວຊີ້ວັດ SDG ທົ່ວໂລກທີ່ສອດຄ້ອງກັນ. ກະລຸນາຮັບຊາບວ່າເຖິງແມ່ນວ່າຕົວຊີ້ວັດ SDG ທົ່ວໂລກສາມາດ ນຳ ໃຊ້ໄດ້ຢ່າງເຕັມສ່ວນຈາກສະຖິຕິ% country_adjective, ຕາຕະລາງນີ້ຄວນໄດ້ຮັບການປຶກສາຫາລືກ່ຽວກັບຂໍ້ມູນກ່ຽວກັບວິທີການແຫ່ງຊາດແລະຂໍ້ມູນ metadata ອື່ນໆ% country_adjective.
       </p>
       <table class="table">
   
@@ -403,619 +628,134 @@ data-event-label="Change to Sources tab"
   
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
           
-            <p>Goal 1. End poverty in all its forms everywhere</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
           
-            <p>1.2 By 2030, reduce at least by half the proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
           
-            <p>1.2.1 Percentage of population living below the national poverty line</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
           
-            <p>Proportion of population living below the national poverty line</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            <p>22 April 2021</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            <p>Linkage to Goal 1: End poverty in all its forms everywhere</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Lao Statistics Bureau</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
           
-            <p>Mr.Vilaysook SISOULATH</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            <p>Department of Social Statistics</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            <p>Deputy Director General</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            <p>+856 20 55 795 043</p>
-<p>+856 21 214 740</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            <p><a href="mailto:vilaysooks@gmail.com">vilaysooks@gmail.com</a></p>
-<p><a href="mailto:lstats@lsb.gov.la">lstats@lsb.gov.la</a></p>
-<p>https://www.lsb.gov.la</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
           
-            <p><strong>Definition:</strong></p>
-<p>The national poverty rate is the percentage of the total population living below the national poverty line. The rural poverty rate is the percentage of the rural population living below the national poverty line (or in cases where a separate, rural poverty line is used, the rural poverty line). Urban poverty rate is the percentage of the urban population living below the national poverty line (or in cases where a separate, urban poverty line is used, the urban poverty line). </p>
-<p><strong>Concepts:</strong></p>
-<p>In assessing poverty in a given country, and how best to reduce poverty according to national definitions, one naturally focuses on a poverty line that is considered appropriate for that country. Poverty lines across countries vary in terms of their purchasing power, and they have a strong economic gradient, such that richer countries tend to adopt higher standards of living in defining poverty. Within a country, the cost of living is typically higher in urban areas than in rural areas. Some countries may have separate urban and rural poverty lines to represent different purchasing powers. </p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
           
-            <p>Survey: Lao Expenditure and Consumption Survey (LECS)</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
           
-            <p>The most recent Expenditure and Consumption Survey (LECS VI) is the sixth LECS survey conducted in Lao PDR. It is a survey in terms of socio-economy at the household echelon. This survey is a sample survey which is carried out in every province and district over the whole country. The survey was undertaken from June 2018 and June 2019 (for a period of 12 months) in order to be able to provide data on expenditure and consumption covering all seasons and relating to aspects of every area and region in the Lao PDR.</p>
-<p>In this survey, data on expenditure and income was collected from households. Data was collected during one month using the daily recording principle. All transactions were captured in a diary and classified by kind of consumption, or by result of agricultural production and business of the household. Data on purchase of goods with long life-time (durables) such as furniture, television, automobile, motorcycle and others were also recorded for the period of the past 12 months.<br /><br />Data on time use was captured in the middle of the month for all household members aged 10 years and higher.</p>
-<p><strong>Data Collection Mode:</strong> Face-to-face</p>
-<p><strong>Supervision</strong></p>
-<p>Each team comprised 1 supervisor and 2 enumerators for each village. </p>
-<p><strong>Data Collection Notes</strong></p>
-<p>The training for trainers and supervisors was conducted for 5 days at the Department of Statistics, Vientiane Capital, with the participation of all staff from the Statistics Section from 17 provinces.<br /><br />The training for enumerators lasted 11 days and was held at 4 points:<br />- first point at …………. province from 8 provinces<br />- second point at Vientiane Capital for 2 provinces from center<br />- third point at …………province from…………….</p>
-<h2><strong>Sampling</strong></h2>
-<p># Sampling Procedure: Sample Design and Selection </p>
-<p>First Step: Description of Sample Village</p>
-<p>Second Step: Selection of Sample Household</p>
-<h2><strong>Questionnaires</strong></h2>
-<p>Four questionnaires were used to collect the LECS VI :<br />- Household Questionnaire<br />- Dairy Sheet<br />- Time Use Questionnaire<br />- Village Questionnaire<br />- Price Questionnaire</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            <p>Start: June 2018</p>
-<p>End: June 2019</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            <p>2026</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
           
-            <p>Lao Statistics Bureau</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            <p>Lao Statistics Bureau</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
           
-            <p>Article 19. Survey executing agencies in Statistics Law Number Order 03, Vientiane Municipality 30June 2010 said that Lao Statistics Bureau executes census and national sample surveys and other specific surveys that are defined in the SDNSS in each period of time</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
           
-            <p>To be useful for poverty estimates, surveys must be nationally representative. They must also include enough information to compute a comprehensive estimate of total household consumption or income (including consumption or income from own production) and to construct a correctly weighted distribution of consumption or income per person.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            <p><img src="data:image/png;base64,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" /></p>
-<p>Where  is an indicator function that takes on a value of 1 if the bracketed expression is true, and 0 otherwise. If individual consumption or income  is less than the national poverty line (for example, in absolute terms the line could be the price of a consumption bundle or in relative terms a percentage of the income distribution), then  is equal to 1 and the individual is counted as poor.  is the total, urban or rural number of poor. is the total, urban or rural population. </p>
-<p>National poverty rates use a country specific poverty line, reflecting the country’s economic and social circumstances.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
           
-            <p>consultation process with line ministries on the national data submitted to the SDGs Indicators</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            <p>The Lao Expenditure and Consumption Survey (LECS) have been conducted at five-year intervals since 1992/1993</p>
-<p>Disaggregated by Location (U/R), sex and age group</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
           
-            <p>https://unstats.un.org/sdgs/metadata/</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data last updated </th>
-        <td>
           
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata last updated </th>
-        <td>
           
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
+          
       
-      
-      
-  
+        
+          
   
   
   
@@ -1098,611 +838,138 @@ data-event-label="Change to Sources tab"
   <!-- Global Metadata -->
   <div>
     <article>
-      <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+      <p>ຕາຕະລາງນີ້ສະ ໜອງ ຂໍ້ມູນກ່ຽວກັບຂໍ້ມູນ metadata ສຳ ລັບຕົວຊີ້ວັດ SDG ຕາມທີ່ ກຳ ນົດໂດຍຄະນະ ກຳ ມະການສະຖິຕິຂອງສະຫະປະຊາຊາດ. <a href="https://unstats.un.org/sdgs/metadata/"> ຂໍ້ມູນ metadata ທົ່ວໂລກ </a> ແມ່ນໃຫ້ໂດຍພະແນກສະຖິຕິຂອງສະຫະປະຊາຊາດ.</p>
       <table class="table">
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">International organisations(s) responsible for global monitoring </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Adjustments </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Treatment of missing values (i) at country level and (ii) at regional level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Regional aggregations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
+          
   
   
   
@@ -1838,12 +1105,23 @@ data-event-label="Change to Sources tab"
   <div role="tabpanel" class="tab-pane" id="edit">
     <div class="edit-container">
   
-  <a class="btn btn-primary" href="http://prose.io/#sdg-laos/data/edit/develop/data/indicator_1-2-1.csv">Edit Data</a>
   
 
   
-  <a class="btn btn-primary" href="http://prose.io/#sdg-laos/data/edit/develop/meta/1-2-1.md">Edit Metadata</a>
   
+
+
+  <a class="btn btn-primary" href="https://github.com/sdg-laos/data/tree/develop/data">ແກ້ໄຂຂໍ້ມູນ</a>
+  
+
+  
+  <a class="btn btn-primary" href="https://github.com/sdg-laos/data/tree/develop/meta">ແກ້ໄຂເມຕາເດຕາ</a>
+  
+
+  
+  <a class="btn btn-primary" href="config">ແກ້ໄຂການຕັ້ງຄ່າ</a>
+  
+
 </div>
 
   </div>
@@ -1862,34 +1140,32 @@ data-event-label="Change to Sources tab"
       <div class="col-xs-12">
         <div id="footerLinks">
           <ul>
-            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
+            <li><a href="https://open-sdg.org">ສ້າງໂດຍໃຊ້ Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
-                  <a href="mailto:my-email-address@example.com" target="_blank">Contact us</a>
+                  <a href="mailto:my-email-address@example.com" target="_blank">ຕິດຕໍ່ພວກເຮົາ</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
                   <a href="https://twitter.com/MyTwitterAccount" target="_blank">Twitter</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
-                  <a href="https://facebook.com/MyFacebookAccount" target="_blank">Facebook</a>
+                  <a href="https://facebook.com/MyFacebookAccount" target="_blank">ເຟສບຸກ</a>
                 
                 </li>
-              
-                <li>
-                <a href="/site/about/cookies-and-privacy/">Cookies</a>
+              <li>
+                <a href="/site/about/cookies-and-privacy/">ຄຸກກີ</a>
                 
                 </li>
               
             
-          </ul>
+            
+            <li><a href="/site/config">Configuration</a></li>
+            </ul>
         </div>
       </div>
     </div>
@@ -1907,20 +1183,26 @@ data-event-label="Change to Sources tab"
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = 'hide';</script>
+    translations['general']['hide'] = 'ຊ່ອນ';</script>
 
 <script>translations['search'] = translations['search'] || {};
-    translations['search']['search'] = 'Search';</script>
+    translations['search']['search'] = 'ຄົ້ນຫາ';</script>
 
-<script src='/site/assets/js/sdg.js?v=20210601001630'></script><script>
+<script src='/site/assets/js/sdg.js?v=20210601011642'></script>
+
+
+    
+    
+    <script src="/site/assets/js/custom.js?v=20210601011642"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1953,19 +1235,20 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap

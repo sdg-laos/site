@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="lo" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -11,12 +11,18 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/en',
+  remoteDataBaseUrl: 'https://sdg-laos.github.io/data/lo',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
   chartConfigAlter: function(callback) {
     this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
   },
 
   // A hook which can be replaced to alter whether/how the values that are
@@ -26,7 +32,13 @@ var opensdg = {
     return value;
   },
 
-  language: 'en',
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  language: 'lo',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -90,11 +102,15 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Indicator 8.7.1 - Goal 8
-          
-        </title>
+        
+    <title>
+        
+        ຕົວຊີ້ວັດ 8.7.1 -
+        
+        ອັດຕາສ່ວນແລະ ຈຳ ນວນເດັກອາຍຸ 5-17 ປີທີ່ພົວພັນກັບແຮງງານເດັກ, ເພດແລະອາຍຸ - Indicators For The Sustainable Development Goals
+    </title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210601001630">
+        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210601011642">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -132,103 +148,285 @@ var translations = {
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
+        
+
     </head>
-<body class="language-en layout-indicator">
+<body class="language-lo
+layout-indicator
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<script>translations['header'] = {"alpha":"ບໍ່ມີເພດ;","default_contrast":"ກົງກັນຂ້າມໃນຕອນຕົ້ນ","disable_high_contrast":"ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ","disclaimer":"ນີ້ແມ່ນເວບໄຊທ໌ການພັດທະນາ. ພວກເຮົາຍິນດີຮັບ ຄຳ ຄິດເຫັນ <a href=\"mailto:%email_address\"> ຂອງທ່ານ </a>.","enable_high_contrast":"ເປີດໃຊ້ຄວາມຄົມຊັດສູງ","high_contrast":"ກົງກັນຂ້າມສູງ","skip_link":"ຂ້າມໄປຫາເນື້ອຫາຫຼັກ","tag_line":"17 ເປົ້າ ໝາຍ ໃນການຫັນປ່ຽນໂລກຂອງພວກເຮົາ","toggle_menu":"ເມນູປິດ. ກົດເພື່ອຂະຫຍາຍຫຼືຫຍໍ້ເມນູ.","toggle_search":"ຄົ້ນຫາສະຫຼັບ. ກົດເພື່ອຂະຫຍາຍຫຼືຍຸບແຖບຄົ້ນຫາ."};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">ຂ້າມໄປຫາເນື້ອຫາຫຼັກ</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
-    <strong class="phase-tag">Alpha</strong>
+  <div class="disclaimer-alert">
+    <strong class="phase-tag">EXAMPLE</strong>
     
-    This is a development website. We welcome your <a href="mailto:test@example.com">feedback</a>.
+    This site is an unofficial example for demonstrational purposes only.
   </div>
 </div>
 
 </div>
 
-<header role="banner">
+<header role="banner" class="header-menu-left-aligned">
   <div class="container">
 
-    <a class="navbar-brand" href="/site/" id="home">
-      <img src="/site/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/site/" id="home">
+    <img src="/site/assets/img/SDG_logo.png" alt="ເປົ້າ ໝາຍ ການພັດທະນາແບບຍືນຍົງ - 17 ເປົ້າ ໝາຍ ໃນການຫັນປ່ຽນໂລກຂອງພວກເຮົາ" />
+</a>
+      <div class="mobile-widgets">
+    <ul id='accessibility-nav' class='contrast-switcher'>
+        
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           aria-label="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
 
-    <nav class="navbar navbar-default" id="main-nav">
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           aria-label="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
 
-      <ul class="top-level">
-        <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
-        </li>
-        <li><span data-target="search">Search</span></li>
-      </ul>
+        >A</a>
+    </li>
 
+
+    </ul><div class="language-toggle-mobile">
+        <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">ພາສາລາວ</span>
+      <span class="language-abbreviation">lo</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/site/en/8-7-1/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+    </div></div>
+    </div>
+
+    <div class="search-and-desktop-widgets">
       <div id="search" class="menu-target">
   <form action="/site/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <label class="sr-only" for="indicator_search">ຄົ້ນຫາ</label>
+    <input type="text" name="q" id="indicator_search" title="ຄົ້ນຫາ" /><!--
+    --><button aria-label="ຄົ້ນຫາ" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/site/goals">Goals</a>
-          </li><li class="nav-link ">
-            <a href="/site/reporting-status">Reporting Status</a>
-          </li><li class="nav-link ">
-            <a href="/site/about">About</a>
-          </li><li class="nav-link ">
-            <a href="/site/guidance">Guidance</a>
-          </li><li class="nav-link ">
-            <a href="/site/faq">FAQ</a>
-          </li><li class="nav-link ">
-            <a href="/site/news">Updates</a>
-          </li></ul>
+      <div class="navbar navbar-default widgets-without-menu">
+        <ul class="nav navbar-nav contrast-switcher"><li class="language-toggle-menu-header">
+            
 
-      
 
-    </nav>
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-links"></i>
+  <ul class="language-toggle-links"><li>
+      <a class="language-toggle-link" href="/site/en/8-7-1/"><span class="language-name">English</span>
+        <span class="language-abbreviation">en</span></a>
+    </li></ul>
+</div>
+
+
+
+        </li>
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           aria-label="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           aria-label="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="navbar navbar-default menu-without-widgets" id="main-nav">
+      <ul class="top-level">
+    <li id="menuToggle"
+        aria-label="ເມນູປິດ. ກົດເພື່ອຂະຫຍາຍຫຼືຫຍໍ້ເມນູ."
+        aria-haspopup="true">
+        <button data-target="menu-mobile" aria-expanded="false">ເມນູ</button>
+        <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/site/goals">ເປົ້າ ໝາຍ</a>
+</li><li class="nav-link ">
+    <a href="/site/reporting-status">ສະຖານະພາບການລາຍງານ</a>
+</li><li class="nav-link ">
+    <a href="/site/about">ກ່ຽວກັບ</a>
+</li><li class="nav-link ">
+    <a href="/site/guidance">ການຊີ້ ນຳ</a>
+</li><li class="nav-link ">
+    <a href="/site/faq">ຄຳ ຖາມທີ່ຖາມ</a>
+</li><li class="nav-link ">
+    <a href="/site/news">ການປັບປຸງ</a>
+</li><li class="language-toggle-menu-header">
+    
+
+
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-links"></i>
+  <ul class="language-toggle-links"><li>
+      <a class="language-toggle-link" href="/site/en/8-7-1/"><span class="language-name">English</span>
+        <span class="language-abbreviation">en</span></a>
+    </li></ul>
+</div>
+
+
+
+</li>
+
+
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           aria-label="ປິດການໃຊ້ງານກົງກັນຂ້າມສູງ"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           aria-label="ເປີດໃຊ້ຄວາມຄົມຊັດສູງ"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+
+</ul>
+
+    </li>
+    <li id="searchToggle"
+        aria-label="ຄົ້ນຫາສະຫຼັບ. ກົດເພື່ອຂະຫຍາຍຫຼືຍຸບແຖບຄົ້ນຫາ."
+        aria-haspopup="true">
+        <button data-target="search-mobile" aria-expanded="false">ຄົ້ນຫາ</button>
+        <div id="search-mobile" class="menu-target">
+  <form action="/site/search">
+    <label class="sr-only" for="indicator_search-mobile">ຄົ້ນຫາ</label>
+    <input type="text" name="q" id="indicator_search-mobile" title="ຄົ້ນຫາ" /><!--
+    --><button aria-label="ຄົ້ນຫາ" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+    </li>
+</ul>
+      <ul class="nav navbar-nav menu-target " id="menu"><li class="nav-link ">
+    <a href="/site/goals">ເປົ້າ ໝາຍ</a>
+</li><li class="nav-link ">
+    <a href="/site/reporting-status">ສະຖານະພາບການລາຍງານ</a>
+</li><li class="nav-link ">
+    <a href="/site/about">ກ່ຽວກັບ</a>
+</li><li class="nav-link ">
+    <a href="/site/guidance">ການຊີ້ ນຳ</a>
+</li><li class="nav-link ">
+    <a href="/site/faq">ຄຳ ຖາມທີ່ຖາມ</a>
+</li><li class="nav-link ">
+    <a href="/site/news">ການປັບປຸງ</a>
+</li>
+
+</ul>
+
+    </div>
+
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
+
+
 
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
-      <div class="bar">
-        <div class="selected"></div>
-      </div>
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">ສະແດງ ໝວດ ຍ່ອຍ: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
       <div class="variable-options">
-        <div>
-          <button data-type="select">Select all</button>
-          <button data-type="clear">Clear all</button>
-        </div>
-        <% _.each(fieldItem.values, function(item) { %>
-          <label>
-            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
-          </label>
-        <% }); %>
+        <fieldset>
+          <legend class="sr-only">ປະເພດຍ່ອຍ - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">ເລືອກທັງຫມົດ</button>
+            <button data-type="clear">ລ້າງທຸກຢ່າງ</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
       </div>
 
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">ສາມາດໃຊ້ໄດ້ເມື່ອ '% field' ຖືກເລືອກ
         </div>
-        <div class="no-data-hint">
-          No options available because of filters above
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          ບໍ່ມີທາງເລືອກໃດໆເພາະຕົວກອງຂ້າງເທິງ
         </div>
       <% }%>
 
@@ -238,44 +436,74 @@ var translations = {
 
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
-    <h4>Units type</h4>
-    <% _.each(units, function(unitsItem, index) { %>
-      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
-    <% }); %>
+    <h4>ຫົວ ໜ່ວຍ ວັດແທກ</h4>
+    <fieldset>
+      <legend class="sr-only">ຫົວ ໜ່ວຍ ວັດແທກ</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"annotation_2030_target":"2030 Target","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_configuration":"Edit Configuration","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_search":"Search","map_search_hide":"Hide search","map_search_show":"Show search","map_year_slider":"Year slider","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","unit":"Unit","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script type="text/template" id="series_template">
+  <% if(serieses.length) { %>
+    <h4>ຊຸດ</h4>
+    <fieldset>
+      <legend class="sr-only">ຊຸດ</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
+  <% } %>
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"ເປົ້າ ໝາຍ ປີ 2030","announce_data_added":"ຕາຕະລາງແລະຕາຕະລາງທີ່ຖືກປັບປຸງເພື່ອປະກອບມີຂໍ້ມູນ.","announce_data_not_available":"ຕາຕະລາງແລະຕາຕະລາງບໍ່ມີຂໍ້ມູນ.","announce_data_removed":"ຕາຕະລາງແລະຕາຕະລາງຖືກປັບປຸງເພື່ອຍົກເວັ້ນຂໍ້ມູນ.","chart":"ຕາຕະລາງ","chart_annotation":"ຄຳ ບັນຍາຍຕາຕະລາງ","clear_all":"ລ້າງທຸກຢ່າງ","clear_selections":"ເລືອກທີ່ຈະແຈ້ງ","data_keyboard_navigation":"ກົດເຂົ້າເພື່ອຄົ້ນຫາຈຸດຂໍ້ມູນດ້ວຍປຸ່ມລູກສອນຊ້າຍແລະຂວາ.","data_not_available":"ຂໍ້ມູນນີ້ບໍ່ມີ. ກະລຸນາເລືອກຂໍ້ມູນທາງເລືອກເພື່ອສະແດງ.","data_tabular_alternative":"ສຳ ລັບຕົວເລືອກຂໍ້ມູນຕາຕະລາງເບິ່ງຕາຕະລາງຕາຕະລາງ.","dataset_size_warning":"ມີຊຸດຂໍ້ມູນຫຼາຍເກີນໄປທີ່ຈະສະແດງໃນຕາຕະລາງ. ບໍ່ແມ່ນທັງ ໝົດ ຈະຖືກສະແດງຈົນກວ່າທ່ານຈະເລືອກບາງຕົວເລືອກ.","download_chart":"ດາວໂຫລດຕາຕະລາງ CSV","download_chart_image":"ດາວໂຫລດຮູບພາບຕາຕະລາງ","download_chart_image_title":"ດາວໂຫລດຕາຕະລາງເປັນຮູບພາບ","download_csv":"ດາວໂຫລດ CSV","download_csv_title":"ດາວໂຫລດເປັນ CSV","download_geojson":"ດາວໂຫລດ GeoJSON","download_geojson_title":"ດາວໂຫລດເປັນ GeoJSON","download_headline":"ດາວໂຫລດຫົວເລື່ອງ CSV","download_headline_title":"ດາວໂຫລດຂໍ້ມູນຫົວຂໍ້ເປັນ CSV","download_source":"ແຫລ່ງດາວໂຫລດ CSV","download_source_sdmx":"ແຫລ່ງດາວໂຫລດ SDMX","download_source_sdmx_title":"ດາວໂຫລດຂໍ້ມູນແຫຼ່ງທີ່ເປັນ SDMX","download_source_title":"ດາວໂຫລດຂໍ້ມູນແຫຼ່ງຂໍ້ມູນເປັນ CSV","download_table":"ດາວໂຫລດຕາຕະລາງ CSV","edit":"ແກ້ໄຂ","edit_configuration":"ແກ້ໄຂການຕັ້ງຄ່າ","edit_data":"ແກ້ໄຂຂໍ້ມູນ","edit_metadata":"ແກ້ໄຂເມຕາເດຕາ","footnote":"ໝາຍ ເຫດ","geographical_area":"ເຂດພູມສາດ","global_metadata":"Metadata ທົ່ວໂລກ","global_metadata_blurb":"ຕາຕະລາງນີ້ສະ ໜອງ ຂໍ້ມູນກ່ຽວກັບຂໍ້ມູນ metadata ສຳ ລັບຕົວຊີ້ວັດ SDG ຕາມທີ່ ກຳ ນົດໂດຍຄະນະ ກຳ ມະການສະຖິຕິຂອງສະຫະປະຊາຊາດ. <a href=\"https://unstats.un.org/sdgs/metadata/\"> ຂໍ້ມູນ metadata ທົ່ວໂລກ </a> ແມ່ນໃຫ້ໂດຍພະແນກສະຖິຕິຂອງສະຫະປະຊາຊາດ.","legend_help":"ກົດທີ່ເທບນິຍາຍເພື່ອ ກຳ ນົດເສັ້ນສ່ວນຕົວອອກຈາກຕາຕະລາງ.","loading":"ກຳ ລັງໂຫລດ","loading_map":"ກຳ ລັງໂຫລດແຜນທີ່","map":"ແຜນທີ່","map_search":"ຄົ້ນຫາ","map_search_hide":"ເຊື່ອງການຄົ້ນຫາ","map_search_show":"ສະແດງການຄົ້ນຫາ","map_year_slider":"ແຖບເລື່ອນປີ","national_metadata":"Metadata ແຫ່ງຊາດ","national_metadata_blurb":"ຕາຕະລາງນີ້ສະ ໜອງ metadata ສຳ ລັບຕົວຊີ້ວັດຕົວຈິງທີ່ມີຈາກສະຖິຕິ% country_name ທີ່ຢູ່ໃກ້ກັບຕົວຊີ້ວັດ SDG ທົ່ວໂລກທີ່ສອດຄ້ອງກັນ. ກະລຸນາຮັບຊາບວ່າເຖິງແມ່ນວ່າຕົວຊີ້ວັດ SDG ທົ່ວໂລກສາມາດ ນຳ ໃຊ້ໄດ້ຢ່າງເຕັມສ່ວນຈາກສະຖິຕິ% country_adjective, ຕາຕະລາງນີ້ຄວນໄດ້ຮັບການປຶກສາຫາລືກ່ຽວກັບຂໍ້ມູນກ່ຽວກັບວິທີການແຫ່ງຊາດແລະຂໍ້ມູນ metadata ອື່ນໆ% country_adjective.","next":"ຕົວຊີ້ວັດຕໍ່ໄປ","no_data_hint":"ບໍ່ມີທາງເລືອກໃດໆເພາະຕົວກອງຂ້າງເທິງ","plot_legend_description":"ນິທານເລື່ອງດິນຕອນ: ບັນຊີລາຍຊື່ຂອງສາຍລວມຢູ່ໃນຕາຕະລາງ","previous":"ຕົວຊີ້ວັດທີ່ຜ່ານມາ","select_all":"ເລືອກທັງຫມົດ","series":"ຊຸດ","series_help":"ເລືອກປະເພດຕ່າງໆຈາກແບບເລື່ອນລົງລຸ່ມເພື່ອເບິ່ງລາຍລະອຽດຕ່າງໆຂອງຂໍ້ມູນ. ບາງບ່ອນຈະບໍ່ສາມາດໃຊ້ໄດ້ຈົນກວ່າລະດັບທີ່ສູງກວ່າຈະຖືກຄັດເລືອກ.","source":"ແຫຼ່ງຂໍ້ມູນ","sources":"ແຫຼ່ງຂໍ້ມູນ","status":"ສະຖານະພາບຕົວຊີ້ວັດ","sub_categories":"ປະເພດຍ່ອຍ","sub_categories_show":"ສະແດງ ໝວດ ຍ່ອຍ:","table":"ຕາຕະລາງ","table_column_sort":"ກົດເພື່ອຈັດຮຽງຕາມຖັນນີ້","tags":"ປ້າຍ","unit":"ຫົວໜ່ວຍ","unit_of_measurement":"ຫົວ ໜ່ວຍ ວັດແທກ","units_type":"ປະເພດຫົວ ໜ່ວຍ","variable_hint":"ສາມາດໃຊ້ໄດ້ເມື່ອ '% field' ຖືກເລືອກ","view_indicator_list":"ເບິ່ງລາຍການຕົວຊີ້ວັດຂອງເປົ້າ ໝາຍ ນີ້"};</script>
 
 <script>translations['data'] = null;</script>
 
 
+<div class="container">
+  
+<ol class="breadcrumb">
+  
+  <li><a href="/site/">ເຮືອນ</a></li>
+  <li><a href="/site/goals">ເປົ້າ ໝາຍ</a></li>
+  
+  <li><a href="/site/8" title="ສົ່ງເສີມການຂະຫຍາຍຕົວທາງດ້ານເສດຖະກິດແບບຍືນຍົງ, ແບບລວມແລະແບບຍືນຍົງ, ການຈ້າງງານເຕັມຮູບແບບແລະການເຮັດວຽກທີ່ ເໝາະ ສົມ ສຳ ລັບທຸກຄົນ">ເປົ້າ ໝາຍ 8</a></li>
+  
+</ol>
+
+
+  
+</div>
 <div class="heading goal-banner indicator goal-8">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
-        <a href="/site/8" title="View this goal's indicator list">
-          <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" />
+      
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+        <a href="/site/8" title="ເບິ່ງລາຍການຕົວຊີ້ວັດຂອງເປົ້າ ໝາຍ ນີ້">
+          <img src="https://open-sdg.org/sdg-translations/assets/img/goals/lo/8.png" alt="ວຽກທີ່ມີກຽດແລະການເຕີບໂຕທາງເສດຖະກິດ - ເປົ້າ ໝາຍ 8" id="goal-8" class="goal-icon-image goal-icon-image-"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
+      
         <div>
-          <h1>Indicator 8.7.1</h1>
-          <p class="lead-copy">Proportion and number of children aged 5–17 years engaged in child labour, by sex and age</p>
+          <h1>
+            
+            ຕົວຊີ້ວັດ 8.7.1
+            
+            <span class="lead-copy">ອັດຕາສ່ວນແລະ ຈຳ ນວນເດັກອາຍຸ 5-17 ປີທີ່ພົວພັນກັບແຮງງານເດັກ, ເພດແລະອາຍຸ</span>
+          </h1>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-8">
-  <ol class="breadcrumb">
-  <li><a href="/site/">Home</a></li>
-  <li><a href="/site/8" title="Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all">Goal 8</a></li>
-  <li class="active">Indicator 8.7.1</li>
-</ol>
-
+<div id="main-content" class="container goal-8" role="main">
   
 
   
@@ -284,25 +512,16 @@ var translations = {
 
 
   
-
-
-
-
-
 
 
 <div class="row"
   id="indicatorData"
   data-indicatorid='indicator_8-7-1'
   data-id="8-7-1"
-  data-country="Laos"
-  data-charttitle="Proportion and number of children aged 5–17 years engaged in child labour, by sex and age"
+  data-country="Lao PDR"
+  data-charttitle="ອັດຕາສ່ວນແລະ ຈຳ ນວນເດັກອາຍຸ 5-17 ປີທີ່ພົວພັນກັບແຮງງານເດັກ, ເພດແລະອາຍຸ"
   data-charttitles="null"
   data-measurementunit=""
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea=""
-  data-footnote=""
   data-showdata="false"
   data-graphtype="line"
   data-geocoderegex=""
@@ -310,6 +529,10 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-indicatordownloads="null"
+  data-compositebreakdownlabel=""
+  data-precision="null"
 >
   
   <div id="indicator-main" class="indicator-main col-md-12">
@@ -317,31 +540,33 @@ var translations = {
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
   <li role="presentation" class="nav-item active">
-  <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to National Metadata tab"
->National Metadata</a>
+>Metadata ແຫ່ງຊາດ</a>
 </li>
+
 <li role="presentation" class="nav-item">
-  <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-global" href="#global" aria-controls="global" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Global Metadata tab"
->Global Metadata</a>
+>Metadata ທົ່ວໂລກ</a>
 </li>
+
 <li role="presentation" class="nav-item">
-  <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-sources" href="#sources" aria-controls="sources" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Sources tab"
->Sources</a>
+>ແຫຼ່ງຂໍ້ມູນ</a>
 </li>
 
 
   
   <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+    <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">ແກ້ໄຂ</a>
   </li>
   
 </ul>
@@ -355,7 +580,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Laos statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Laotian statistics, this table should be consulted for information on national methodology and other Laotian-specific metadata information.
+        ຕາຕະລາງນີ້ສະ ໜອງ metadata ສຳ ລັບຕົວຊີ້ວັດຕົວຈິງທີ່ມີຈາກສະຖິຕິ% country_name ທີ່ຢູ່ໃກ້ກັບຕົວຊີ້ວັດ SDG ທົ່ວໂລກທີ່ສອດຄ້ອງກັນ. ກະລຸນາຮັບຊາບວ່າເຖິງແມ່ນວ່າຕົວຊີ້ວັດ SDG ທົ່ວໂລກສາມາດ ນຳ ໃຊ້ໄດ້ຢ່າງເຕັມສ່ວນຈາກສະຖິຕິ% country_adjective, ຕາຕະລາງນີ້ຄວນໄດ້ຮັບການປຶກສາຫາລືກ່ຽວກັບຂໍ້ມູນກ່ຽວກັບວິທີການແຫ່ງຊາດແລະຂໍ້ມູນ metadata ອື່ນໆ% country_adjective.
       </p>
       <table class="table">
   
@@ -403,632 +628,134 @@ data-event-label="Change to Sources tab"
   
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
           
-            <p>SDG 8: Decent Work and Economic Growth: Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
           
-            <p>8.7 Take immediate and effective measures to eradicate forced labour, end modern slavery and human trafficking and secure the prohibition and elimination of the worst forms of child labour, including recruitment and use of child soldiers, and by 2025 end child labour in all its forms.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
           
-            <p>8.7.1 Percentage of children aged 5-17 in employment (“Working Children”):</p>
-<p>- Total</p>
-<p>- Female</p>
-<p>- Male</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
           
-            <p>SL_TLF_CHLDEA</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            <p>1 May 2021</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Lao Statistics Bureau</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
           
-            <p>Mr.Vilaysook SISOULATH</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            <p>Department of Social Statistics</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            <p>Deputy Director General</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            <p>+856 20 55 795 043</p>
-<p>+856 21 214 740</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            <p><a href="mailto:vilaysooks@gmail.com">vilaysooks@gmail.com</a></p>
-<p><a href="mailto:lstats@lsb.gov.la">lstats@lsb.gov.la</a></p>
-<p>https://www.lsb.gov.la</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
           
-            <p><strong>Definition:</strong></p>
-<p>The number of children engaged in child labour corresponds to the number of children reported to be in child labour during the reference period (usually the week prior to the survey). The proportion of children in child labour is calculated as the number of children in child labour divided by the total number of children in the population.  For the purposes of this indicator, children include all persons aged 5 to 17. ) .</p>
-<p><strong>Concepts:</strong></p>
-<p>Three principal international legal instruments – ILO Convention No. 138 (Minimum Age) (C138), United Nations Convention on the Rights of the Child (CRC), ILO Convention No. 182 (Worst Forms) (C182) together set the legal boundaries for child labour, and provide the legal basis for national and international actions against it.  In accordance with these instruments, child labour is work that children should <em>not </em>be doing because (a) they are too young or (b) is likely to harm their health, safety or morals, due to its nature or the conditions in which it is carried out. </p>
-<p>The resolutions adopted by the International Conference of Labour Statisticians (ICLS), the world’s acknowledged standard-setting body in the area of labour statistics, provide the basis for translating the legal standards governing the concept of child labour into statistical terms for the purpose of child labour measurement. </p>
-<p>In accordance with the ICLS resolutions<sup><a href="#footnote-2" id="footnote-ref-2">[2]</a></sup>, child labour can be measured on the basis of the production boundary set by the United Nations System of National Accounts (SNA) or on the basis of the general production boundary. The former limits the frame of reference to economic activity, while the latter extends it to include both economic activity <em>and</em> unpaid household services, that is, the production of domestic and personal services by a household member for consumption within their own household, commonly called “household chores”. </p>
-<p>Following from this, two indicators are used for measuring child labour for the purpose of SDG reporting, the first based on the production boundary set by the United Nations System of National Accounts (SNA) and the second based on the general production boundary. </p>
-<p>Indicator 1: Proportion and number of children aged 5-17 years engaged in economic activities at or above age-specific hourly thresholds (<strong>SNA production boundary basis</strong>) </p>
-<p><em>Child labour for the 5 to 11 age range</em>: children working at least 1 hour per week in economic activity;</p>
-<p><em>Child labour for the 12 to 14 age range</em>: children working for at least 14 hours per week in economic activity;</p>
-<p><em>Child labour for the 15 to 17 age range</em>: children working for more than 43 hours per week in economic activity.</p>
-<p>Indicator 2: Proportion and number of children aged 5-17 years engaged in economic activities and household chores at or above age-specific hourly thresholds (<strong>general production boundary basis</strong>):</p>
-<p><em>Child labour for the 5 to 11 age range</em>: children working at least 1 hour per week in economic activity and/or involved in unpaid household services for more than 21 hours per week;</p>
-<p><em>Child labour for the 12 to 14 age range</em>: children working for at least 14 hours per week in economic activity and/or involved in unpaid household services for more than 21 hours per week;</p>
-<p><em>Child labour for the 15 to 17 age range</em>: children working for more than 43 hours per week in economic activity.<sup><sup><a href="#footnote-3" id="footnote-ref-3">[3]</a></sup></sup></p>
-<p>The concept of child labour also includes the worst forms of child labour other than hazardous (18<sup>th</sup> ICLS paragraphs 33 to 34) as well as hazardous work (18<sup>th</sup> ICLS paragraphs 21 to 32). The worst forms of child labour include all forms of slavery or similar practices such as trafficking and the recruitment and use of child soldiers, the use or procurement of children for prostitution or other illicit activities, and other work that is likely to harm children’s health, safety or well-being.</p>
-<div class="footnotes"><div><sup class="footnote-number" id="footnote-2">2</sup><p> 20th International Conference of Labour Statisticians. Resolution to amend the 18th ICLS Resolution concerning statistics of child labour. ILO. Geneva, October 2019. <a href="#footnote-ref-2">↑</a></p></div><div><sup class="footnote-number" id="footnote-3">3</sup><p> No hourly threshold is set for household chores for ages 15-17. <a href="#footnote-ref-3">↑</a></p></div></div>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
           
-            <p>The Labor Force Survey 2017</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
           
-            <p>The Labor Force Survey that was implemented in Lao People’s Democratic Republic in 2017 (LFS 2017) adopts the new concept of work, employment and labor underutilization that was adopted by the19th International Conference of Labor Statisticians (ICLS) in 2013.</p>
-<h2><strong>Sampling</strong></h2>
-<p>Sampling Procedure</p>
-<p>The 2015 Census of Population and Housing was applied for sampling frame for LFS 2017. Base on the Census, Lao PDR has a total population of 6,479,982 distributed into 1,197,926 households . The province of Savannakhet has the most population but Vientiane Capital has the most households. Population in Xaysomboun is lowest at 85,168, the province also has the lowest number of households at 14,316.<br /><br />Two stage sampling is proposed, with selection of villages in </p>
-<ul><li>the first stage and selection of households in the second stage. In the provincial domains, villages were selected using PPS (no need for stratification since there are fewer villages within each province). </li><li>Second stage sampling comprise of systematic selection of 20 households from the updated list of households from the 2015 Census. Provincial Domains target 10,800 sample households at 3% and 6% margin of errors. </li></ul>
-<p><strong>Data Collection: </strong>Start: 2017, End: 2017</p>
-<p><strong>Data collection Mode: </strong>Face-to-Face</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            <p>2022</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            <p>2023</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
           
-            <p>Lao Statistics Bureau</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            <p>Lao Statistics Bureau</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
           
-            <p>Base on the statistical law and the National Strategy for sustainable Development of Statistical System 2016-2020 and vision for 2030, Ministry of Planning and Investment (MPI) throughout the  Lao  Statistics  Bureau  in  cooperate with  Ministry  of  Labor  and  Welfare  has  conducted  the Lao  Labor  Force  Survey  in  2017.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
           
-            <p>Far too many children in the world remain trapped in child labour, compromising their individual future and our collective futures. According to the latest ILO global estimates, about 152 million children worldwide – 64 million girls and 88 million boys - are child labourers, accounting for almost 10 percent of the child population.  These stark figures underscore the need for accelerated progress against child labour in the lead up to the 2025 target date for ending child labour in all its forms, and the accompanying need for child labour statistics to monitor and guide efforts in this regard.  Reliable, comprehensive and timely data on the nature and extent of child labour provide a basis for determining priorities for national global action against child labour. Statistical information on child labour, and more broadly on all working children, also provide a basis for increasing public awareness of the situation of working children and for the development of appropriate regulatory frameworks and policies.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
           
-            <p>While the concept of child labour includes working in activities that are hazardous in nature, to ensure comparability of estimates over time and to minimize data quality issues, work beyond age-specific hourly thresholds are used as a proxy for hazardous work for the purpose of reporting on SDG indicator 8.7.1. Further methodological work is needed to validate questions specifically aimed at identifying children in hazardous working conditions.</p>
-<p>Similarly, while the worst forms of child labour other than hazardous also form part of the concept of child labour more broadly, data on the worst forms of child labour are not currently captured in regular household surveys given difficulties with accurately and reliably measuring it. Therefore, this element of child labour is not captured by the indicators used for reporting on SDG 8.7.1.  </p>
-<p>In addition, ‘own use production of goods’, including activities such as fetching water and collecting firewood, falls within the production boundary set by the United Nations System of National Accounts (SNA). However, for the purpose of SDG reporting of indicator 8.7.1, and with the goal of facilitating international comparability, fetching water and collecting firewood have been classified as unpaid household services (i.e., household chores), a form of production that lies outside the SNA production boundary. </p>
-<p>More broadly, child labour estimates based on the statistical standards set out in the ICLS resolution represent useful benchmarks for international comparative purposes but are <u>not</u> necessarily consistent with estimates based on national child labour legislation. ILO Convention No. 138 contains a number of flexibility clauses left to the discretion of the competent national authority in consultation (where relevant) with workers’ and employers’ organizations (e.g., minimum ages, scope of application).<sup><a href="#footnote-4" id="footnote-ref-4">[4]</a></sup> This means that there is no single legal definition of child labour across countries, and thus, no single statistical measure of child labour consistent with national legislation across countries.</p>
-<div class="footnotes"><div><sup class="footnote-number" id="footnote-4">4</sup><p> Principal areas of flexibility in the Convention include: (a)<em>minimum ages</em>: Members whose economy and educational facilities are insufficiently developed may specify a lower general minimum age of 14 years (Art. 2.4) and a lower age range for light work of 12 to 14 years (Art 7.4); and (b) <em>scope of application</em>: Members may exclude from the application of the Convention limited (non-hazardous) categories of employment or work in respect of which special and substantial problems of application arise (Art. 4.1). Members whose economy and administrative facilities are insufficiently developed may also initially limit the scope of application of the Convention (Art. 5.1) beyond a core group of economic activities or undertakings (Art. 5.3). <a href="#footnote-ref-4">↑</a></p></div></div>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            <p>Children aged 5-17: Number of children aged 5-17 reported in child labour during the week prior to the survey divided by the total number of children aged 5-17 in the population, multiplied by 100. </p>
-<p>Children aged 5-14: Number of children aged 5-14 reported in child labour during the week prior to the survey divided by the total number of children aged 5-14 in the population, multiplied by 100. </p>
-<p>Children aged 15-17: Number of children aged 15-17 reported child labour during the week prior to the survey divided by the total number of children aged 15-17 in the population, multiplied by 100.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            <p>The Labor Force Survey have been conducted at five-year intervals since 2010</p>
-<p>Disaggregated by Location (U/R), sex, age group and wealth quintile.</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            <p>N/A</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
           
-            <ol><li><a href="file:///C:/Users/BK/AppData/Local/Temp/5.Lao%20PDR%20Labor%20force%20Survey%202017.pdf">file:///C:/Users/BK/AppData/Local/Temp/5.Lao%20PDR%20Labor%20force%20Survey%202017.pdf</a></li><li>https://unstats.un.org/sdgs/metadata/</li></ol>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data last updated </th>
-        <td>
           
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata last updated </th>
-        <td>
           
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
+          
       
-      
-      
-  
+        
+          
   
   
   
@@ -1111,611 +838,138 @@ data-event-label="Change to Sources tab"
   <!-- Global Metadata -->
   <div>
     <article>
-      <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+      <p>ຕາຕະລາງນີ້ສະ ໜອງ ຂໍ້ມູນກ່ຽວກັບຂໍ້ມູນ metadata ສຳ ລັບຕົວຊີ້ວັດ SDG ຕາມທີ່ ກຳ ນົດໂດຍຄະນະ ກຳ ມະການສະຖິຕິຂອງສະຫະປະຊາຊາດ. <a href="https://unstats.un.org/sdgs/metadata/"> ຂໍ້ມູນ metadata ທົ່ວໂລກ </a> ແມ່ນໃຫ້ໂດຍພະແນກສະຖິຕິຂອງສະຫະປະຊາຊາດ.</p>
       <table class="table">
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">International organisations(s) responsible for global monitoring </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Adjustments </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Treatment of missing values (i) at country level and (ii) at regional level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Regional aggregations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
+          
   
   
   
@@ -1851,12 +1105,23 @@ data-event-label="Change to Sources tab"
   <div role="tabpanel" class="tab-pane" id="edit">
     <div class="edit-container">
   
-  <a class="btn btn-primary" href="http://prose.io/#sdg-laos/data/edit/develop/data/indicator_8-7-1.csv">Edit Data</a>
   
 
   
-  <a class="btn btn-primary" href="http://prose.io/#sdg-laos/data/edit/develop/meta/8-7-1.md">Edit Metadata</a>
   
+
+
+  <a class="btn btn-primary" href="https://github.com/sdg-laos/data/tree/develop/data">ແກ້ໄຂຂໍ້ມູນ</a>
+  
+
+  
+  <a class="btn btn-primary" href="https://github.com/sdg-laos/data/tree/develop/meta">ແກ້ໄຂເມຕາເດຕາ</a>
+  
+
+  
+  <a class="btn btn-primary" href="config">ແກ້ໄຂການຕັ້ງຄ່າ</a>
+  
+
 </div>
 
   </div>
@@ -1875,34 +1140,32 @@ data-event-label="Change to Sources tab"
       <div class="col-xs-12">
         <div id="footerLinks">
           <ul>
-            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
+            <li><a href="https://open-sdg.org">ສ້າງໂດຍໃຊ້ Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
-                  <a href="mailto:my-email-address@example.com" target="_blank">Contact us</a>
+                  <a href="mailto:my-email-address@example.com" target="_blank">ຕິດຕໍ່ພວກເຮົາ</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
                   <a href="https://twitter.com/MyTwitterAccount" target="_blank">Twitter</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
-                  <a href="https://facebook.com/MyFacebookAccount" target="_blank">Facebook</a>
+                  <a href="https://facebook.com/MyFacebookAccount" target="_blank">ເຟສບຸກ</a>
                 
                 </li>
-              
-                <li>
-                <a href="/site/about/cookies-and-privacy/">Cookies</a>
+              <li>
+                <a href="/site/about/cookies-and-privacy/">ຄຸກກີ</a>
                 
                 </li>
               
             
-          </ul>
+            
+            <li><a href="/site/config">Configuration</a></li>
+            </ul>
         </div>
       </div>
     </div>
@@ -1920,20 +1183,26 @@ data-event-label="Change to Sources tab"
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = 'hide';</script>
+    translations['general']['hide'] = 'ຊ່ອນ';</script>
 
 <script>translations['search'] = translations['search'] || {};
-    translations['search']['search'] = 'Search';</script>
+    translations['search']['search'] = 'ຄົ້ນຫາ';</script>
 
-<script src='/site/assets/js/sdg.js?v=20210601001630'></script><script>
+<script src='/site/assets/js/sdg.js?v=20210601011642'></script>
+
+
+    
+    
+    <script src="/site/assets/js/custom.js?v=20210601011642"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1966,19 +1235,20 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap

@@ -2,12 +2,12 @@
   {
     "goal": {
       "id": "1",
-      "title": "End poverty in all its forms everywhere",
+      "title": "ຢຸດຕິຄວາມທຸກຍາກໃນທຸກຮູບແບບຂອງມັນຢູ່ທົ່ວທຸກແຫ່ງ",
       "indicators": [
         
         {
           "id": "1-2-1",
-          "title": "Proportion of population living below the national poverty line, by sex and age",
+          "title": "ອັດຕາສ່ວນຂອງພົນລະເມືອງທີ່ ດຳ ລົງຊີວິດຕໍ່າກວ່າເສັ້ນຄວາມທຸກຍາກແຫ່ງຊາດ, ໂດຍເພດແລະອາຍຸ",
           "description": "",
           "keywords": "",
           "href": "/site/1-2-1",
@@ -15,7 +15,7 @@
         },
         {
           "id": "1-4-1",
-          "title": "Proportion of population living in households with access to basic services",
+          "title": "ອັດຕາສ່ວນຂອງປະຊາກອນທີ່ອາໄສຢູ່ໃນຄົວເຮືອນທີ່ມີການເຂົ້າເຖິງການບໍລິການຂັ້ນພື້ນຖານ",
           "description": "",
           "keywords": "",
           "href": "/site/1-4-1",
@@ -26,12 +26,12 @@
   {
     "goal": {
       "id": "2",
-      "title": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture",
+      "title": "ຢຸດຕິຄວາມອຶດຫິວ, ບັນລຸຄວາມ ໝັ້ນ ຄົງດ້ານສະບຽງອາຫານແລະປັບປຸງໂພຊະນາການແລະສົ່ງເສີມກະສິ ກຳ ແບບຍືນຍົງ",
       "indicators": [
         
         {
           "id": "2-2-1",
-          "title": "Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age",
+          "title": "ອັດຕາການແຜ່ກະຈາຍຂອງເດັກນ້ອຍ (ຄວາມສູງ ສຳ ລັບອາຍຸສູງສຸດ -2 ການບ່ຽງເບນມາດຕະຖານຈາກລະດັບປານກາງຂອງມາດຕະຖານການເຕີບໂຕຂອງເດັກນ້ອຍໃນອົງການອະນາໄມໂລກ) ໃນບັນດາເດັກນ້ອຍອາຍຸຕໍ່າກວ່າ 5 ປີ",
           "description": "",
           "keywords": "",
           "href": "/site/2-2-1",
@@ -42,12 +42,12 @@
   {
     "goal": {
       "id": "3",
-      "title": "Ensure healthy lives and promote well-being for all at all ages",
+      "title": "ຮັບປະກັນຊີວິດສຸຂະພາບແຂງແຮງແລະສົ່ງເສີມສຸຂະພາບທີ່ດີ ສຳ ລັບທຸກໄວ",
       "indicators": [
         
         {
           "id": "3-1-1",
-          "title": "Maternal mortality ratio",
+          "title": "ອັດຕາການຕາຍຂອງແມ່",
           "description": "",
           "keywords": "",
           "href": "/site/3-1-1",
@@ -55,7 +55,7 @@
         },
         {
           "id": "3-1-2",
-          "title": "Proportion of births attended by skilled health personnel",
+          "title": "ອັດຕາສ່ວນການເກີດທີ່ເຂົ້າຮ່ວມໂດຍພະນັກງານແພດທີ່ມີທັກສະ",
           "description": "",
           "keywords": "",
           "href": "/site/3-1-2",
@@ -63,7 +63,7 @@
         },
         {
           "id": "3-2-1",
-          "title": "Under‐five mortality rate",
+          "title": "ພາຍໃຕ້ອັດຕາການຕາຍ ‐ ຫ້າ",
           "description": "",
           "keywords": "",
           "href": "/site/3-2-1",
@@ -71,7 +71,7 @@
         },
         {
           "id": "3-2-2",
-          "title": "Neonatal mortality rate",
+          "title": "ອັດຕາການຕາຍຂອງເດັກເກີດ ໃໝ່",
           "description": "",
           "keywords": "",
           "href": "/site/3-2-2",
@@ -79,7 +79,7 @@
         },
         {
           "id": "3-7-1",
-          "title": "Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods",
+          "title": "ສັດສ່ວນຂອງແມ່ຍິງທີ່ມີອາຍຸຈະເລີນພັນ (ອາຍຸ 15-49 ປີ) ຜູ້ທີ່ມີຄວາມຕ້ອງການໃນການວາງແຜນຄອບຄົວພໍໃຈກັບວິທີການທີ່ທັນສະ ໄໝ",
           "description": "",
           "keywords": "",
           "href": "/site/3-7-1",
@@ -90,12 +90,12 @@
   {
     "goal": {
       "id": "5",
-      "title": "Achieve gender equality and empower all women and girls",
+      "title": "ບັນລຸຄວາມສະ ເໝີ ພາບລະຫວ່າງຍິງ - ຊາຍແລະສ້າງຄວາມເຂັ້ມແຂງໃຫ້ແກ່ແມ່ຍິງແລະເດັກຍິງທຸກຄົນ",
       "indicators": [
         
         {
           "id": "5-4-1",
-          "title": "Proportion of time spent on unpaid domestic and care work, by sex, age and location",
+          "title": "ອັດຕາສ່ວນທີ່ໃຊ້ເວລາໃນການເຮັດວຽກແລະການເບິ່ງແຍງພາຍໃນບ້ານທີ່ບໍ່ໄດ້ຈ່າຍ, ໂດຍເພດ, ອາຍຸແລະສະຖານທີ່",
           "description": "",
           "keywords": "",
           "href": "/site/5-4-1",
@@ -106,12 +106,12 @@
   {
     "goal": {
       "id": "8",
-      "title": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all",
+      "title": "ສົ່ງເສີມການຂະຫຍາຍຕົວທາງດ້ານເສດຖະກິດແບບຍືນຍົງ, ແບບລວມແລະແບບຍືນຍົງ, ການຈ້າງງານເຕັມຮູບແບບແລະການເຮັດວຽກທີ່ ເໝາະ ສົມ ສຳ ລັບທຸກຄົນ",
       "indicators": [
         
         {
           "id": "8-1-1",
-          "title": "Annual growth rate of real GDP per capita",
+          "title": "ອັດຕາການເຕີບໂຕປະ ຈຳ ປີຂອງ GDP ຕົວຈິງຕໍ່ຫົວຄົນ",
           "description": "",
           "keywords": "",
           "href": "/site/8-1-1",
@@ -119,7 +119,7 @@
         },
         {
           "id": "8-2-1",
-          "title": "Annual growth rate of real GDP per employed person",
+          "title": "ອັດຕາການເຕີບໂຕປະ ຈຳ ປີຂອງ GDP ແທ້ຕໍ່ຄົນ",
           "description": "",
           "keywords": "",
           "href": "/site/8-2-1",
@@ -127,7 +127,7 @@
         },
         {
           "id": "8-5-1",
-          "title": "Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
+          "title": "ລາຍໄດ້ຊົ່ວໂມງສະເລ່ຍຂອງພະນັກງານຍິງແລະຊາຍ, ໂດຍອາຊີບ, ອາຍຸແລະຄົນພິການ",
           "description": "",
           "keywords": "",
           "href": "/site/8-5-1",
@@ -135,7 +135,7 @@
         },
         {
           "id": "8-5-2",
-          "title": "Unemployment rate, by sex, age and persons with disabilities",
+          "title": "ອັດຕາການຫວ່າງງານ, ໂດຍເພດ, ອາຍຸແລະຄົນພິການ",
           "description": "",
           "keywords": "",
           "href": "/site/8-5-2",
@@ -143,7 +143,7 @@
         },
         {
           "id": "8-6-1",
-          "title": "Proportion of youth (aged 15–24 years) not in education, employment or training",
+          "title": "ອັດຕາສ່ວນຂອງໄວ ໜຸ່ມ (ອາຍຸ 15-24 ປີ) ບໍ່ແມ່ນໃນການສຶກສາ, ການຈ້າງງານຫຼືການຝຶກອົບຮົມ",
           "description": "",
           "keywords": "",
           "href": "/site/8-6-1",
@@ -151,7 +151,7 @@
         },
         {
           "id": "8-7-1",
-          "title": "Proportion and number of children aged 5–17 years engaged in child labour, by sex and age",
+          "title": "ອັດຕາສ່ວນແລະ ຈຳ ນວນເດັກອາຍຸ 5-17 ປີທີ່ພົວພັນກັບແຮງງານເດັກ, ເພດແລະອາຍຸ",
           "description": "",
           "keywords": "",
           "href": "/site/8-7-1",
@@ -162,7 +162,7 @@
   {
     "goal": {
       "id": "17",
-      "title": "Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development",
+      "title": "ສ້າງຄວາມເຂັ້ມແຂງໃຫ້ແກ່ວິທີການຈັດຕັ້ງປະຕິບັດແລະຟື້ນຟູຄູ່ຮ່ວມມືໂລກເພື່ອການພັດທະນາແບບຍືນຍົງ",
       "indicators": [
         
         {

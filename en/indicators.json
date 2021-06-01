@@ -1,0 +1,177 @@
+[
+  {
+    "goal": {
+      "id": "1",
+      "title": "End poverty in all its forms everywhere",
+      "indicators": [
+        
+        {
+          "id": "1-2-1",
+          "title": "Proportion of population living below the national poverty line, by sex and age",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/1-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "1-4-1",
+          "title": "Proportion of population living in households with access to basic services",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/1-4-1",
+          "status": "notstarted"
+        }]
+    }
+  },
+  {
+    "goal": {
+      "id": "2",
+      "title": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture",
+      "indicators": [
+        
+        {
+          "id": "2-2-1",
+          "title": "Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/2-2-1",
+          "status": "notstarted"
+        }]
+    }
+  },
+  {
+    "goal": {
+      "id": "3",
+      "title": "Ensure healthy lives and promote well-being for all at all ages",
+      "indicators": [
+        
+        {
+          "id": "3-1-1",
+          "title": "Maternal mortality ratio",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/3-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-1-2",
+          "title": "Proportion of births attended by skilled health personnel",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/3-1-2",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-2-1",
+          "title": "Under‐five mortality rate",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/3-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-2-2",
+          "title": "Neonatal mortality rate",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/3-2-2",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-7-1",
+          "title": "Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/3-7-1",
+          "status": "notstarted"
+        }]
+    }
+  },
+  {
+    "goal": {
+      "id": "5",
+      "title": "Achieve gender equality and empower all women and girls",
+      "indicators": [
+        
+        {
+          "id": "5-4-1",
+          "title": "Proportion of time spent on unpaid domestic and care work, by sex, age and location",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/5-4-1",
+          "status": "notstarted"
+        }]
+    }
+  },
+  {
+    "goal": {
+      "id": "8",
+      "title": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all",
+      "indicators": [
+        
+        {
+          "id": "8-1-1",
+          "title": "Annual growth rate of real GDP per capita",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "8-2-1",
+          "title": "Annual growth rate of real GDP per employed person",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "8-5-1",
+          "title": "Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-5-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "8-5-2",
+          "title": "Unemployment rate, by sex, age and persons with disabilities",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-5-2",
+          "status": "notstarted"
+        },
+        {
+          "id": "8-6-1",
+          "title": "Proportion of youth (aged 15–24 years) not in education, employment or training",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-6-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "8-7-1",
+          "title": "Proportion and number of children aged 5–17 years engaged in child labour, by sex and age",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-7-1",
+          "status": "notstarted"
+        }]
+    }
+  },
+  {
+    "goal": {
+      "id": "17",
+      "title": "Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development",
+      "indicators": [
+        
+        {
+          "id": "17-19-2a",
+          "title": "global_indicators.17-19-2a-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/17-19-2a",
+          "status": "notstarted"
+        }]
+    }
+  }]
