@@ -1,8 +1,7 @@
 ---
 layout: categories
-language: en
 permalink: /categories/
+language: lo
 title: Categories
 ---
-## Posts by Category
-Here is a list of posts, grouped by category:
+ການແປພາສາທີ່ ຈຳ ເປັນ
