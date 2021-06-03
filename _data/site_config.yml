@@ -193,6 +193,9 @@ menu:
   - path: /news
     translation_key: menu.updates
     dropdown: []
+  - path: /Slideshow
+    translation_key: custom.Slideshow
+    dropdown: []
 metadata_edit_url: 'https://github.com/sdg-laos/data/tree/develop/meta'
 metadata_tabs: []
 news:
