@@ -100,7 +100,7 @@ frontpage_cards:
     rule_color: ''
 frontpage_goals_grid:
   title: custom.goals_grid_title
-  description: This text is not translated.
+  description: custom.goal_grid_description
 frontpage_heading: ''
 frontpage_instructions: ''
 frontpage_introduction_banner:
