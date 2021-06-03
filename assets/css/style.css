@@ -30,7 +30,11 @@ ul {
 .language-km #page-content,
 .language-km #indicator-sidebar,
 .language-km #indicator-main,
-.language-km #main-content {
+.language-km #main-content,
+.language-lo #page-content,
+.language-lo #indicator-sidebar,
+.language-lo #indicator-main,
+.language-lo #main-content {
   line-break: anywhere; }
 
 .js #headlineTable {
