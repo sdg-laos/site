@@ -1,5 +1,5 @@
 ---
-title: Slideshow
+title: ຮູບພາບ
 permalink: Slideshow/
 language: lo
 layout: page
