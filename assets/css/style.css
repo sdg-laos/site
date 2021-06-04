@@ -38,6 +38,13 @@ ul {
 .language-lo #main-content,
 .language-lo .goal-banner {
   line-break: anywhere; }
+.language-km #main-content .status-inner,
+.language-lo #main-content .status-inner {
+  line-break: normal; }
+.language-km #indicator-main #national th[scope="row"], .language-km #indicator-main #global th[scope="row"],
+.language-lo #indicator-main #national th[scope="row"],
+.language-lo #indicator-main #global th[scope="row"] {
+  min-width: 100px; }
 
 .js #headlineTable {
   display: none; }
