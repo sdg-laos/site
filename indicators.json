@@ -107,7 +107,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/3-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-1-2",
@@ -115,7 +115,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/3-1-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-2-1",
@@ -123,7 +123,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/3-2-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-2-2",
@@ -131,7 +131,71 @@
           "description": "",
           "keywords": "",
           "href": "/site/3-2-2",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "3-3-1",
+          "title": "ຈຳ ນວນຜູ້ຕິດເຊື້ອໂລກເອດສ ໃໝ່ ໃນ ຈຳ ນວນ 1,000 ຄົນທີ່ບໍ່ຕິດເຊື້ອ, ໂດຍເພດ, ອາຍຸແລະປະຊາກອນທີ່ ສຳ ຄັນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-3-1",
+          "status": "complete"
+        },
+        {
+          "id": "3-3-2",
+          "title": "ຈຳ ນວນຄົນເປັນວັນນະໂຣກ 100,000 ຄົນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-3-2",
+          "status": "complete"
+        },
+        {
+          "id": "3-3-3",
+          "title": "ການລະບາດຂອງພະຍາດໄຂ້ຍຸງລາຍຕໍ່ປະຊາກອນ 1,000 ຄົນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-3-3",
+          "status": "complete"
+        },
+        {
+          "id": "3-3-4",
+          "title": "ການເກີດໂຣກຕັບອັກເສບບີຕໍ່ 100,000 ຄົນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-3-4",
+          "status": "complete"
+        },
+        {
+          "id": "3-3-5",
+          "title": "ຈຳ ນວນຄົນທີ່ຕ້ອງການການແຊກແຊງຕ້ານພະຍາດເຂດຮ້ອນທີ່ຖືກລະເລີຍ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-3-5",
+          "status": "complete"
+        },
+        {
+          "id": "3-4-1",
+          "title": "ອັດຕາການຕາຍແມ່ນຍ້ອນພະຍາດຫຼອດເລືອດຫົວໃຈ, ມະເລັງ, ໂລກເບົາຫວານຫຼືພະຍາດລະບົບຫາຍໃຈຊ້ ຳ ເຮື້ອ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-4-1",
+          "status": "complete"
+        },
+        {
+          "id": "3-5-2",
+          "title": "ການດື່ມເຫຼົ້າທີ່ເປັນອັນຕະລາຍ, ຖືກ ກຳ ນົດໂດຍອີງຕາມສະພາບແຫ່ງຊາດວ່າການບໍລິໂພກເຫຼົ້າຕໍ່ຫົວຄົນ (ອາຍຸ 15 ປີຂຶ້ນໄປ) ພາຍໃນ ໜຶ່ງ ປີຕາມປະຕິທິນໃນລິດເຫຼົ້າບໍລິສຸດລິດ.",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-5-2",
+          "status": "complete"
+        },
+        {
+          "id": "3-6-1",
+          "title": "ອັດຕາການຕາຍຍ້ອນການບາດເຈັບຈາກການສັນຈອນຕາມທ້ອງຖະ ໜົນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-6-1",
+          "status": "complete"
         },
         {
           "id": "3-7-1",
@@ -139,7 +203,31 @@
           "description": "",
           "keywords": "",
           "href": "/site/3-7-1",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "3-7-2",
+          "title": "ອັດຕາການເກີດຂອງໄວ ໜຸ່ມ (ອາຍຸ 10-14 ປີ; ອາຍຸ 15-19 ປີ) ຕໍ່ແມ່ຍິງ 1,000 ຄົນໃນກຸ່ມອາຍຸນັ້ນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-7-2",
+          "status": "complete"
+        },
+        {
+          "id": "3-8-1",
+          "title": "ການຄຸ້ມຄອງບໍລິການດ້ານສຸຂະພາບທີ່ ຈຳ ເປັນ (ໝາຍ ເຖິງການຄຸ້ມຄອງໂດຍສະເລ່ຍຂອງການບໍລິການທີ່ ຈຳ ເປັນໂດຍອີງໃສ່ການແຊກແຊງຂອງຄົນເຈັບເຊິ່ງປະກອບມີສຸຂະພາບຈະເລີນພັນ, ແມ່, ເດັກເກີດ ໃໝ່ ແລະເດັກ, ພະຍາດຕິດຕໍ່, ພະຍາດຕິດຕໍ່ທີ່ບໍ່ຕິດຕໍ່ແລະຄວາມສາມາດໃນການບໍລິການແລະການເຂົ້າເຖິງ, ໃນກຸ່ມພົນລະເມືອງທົ່ວໄປແລະຜູ້ດ້ອຍໂອກາດທີ່ສຸດ. )",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-8-1",
+          "status": "complete"
+        },
+        {
+          "id": "3-8-2",
+          "title": "ອັດຕາສ່ວນຂອງປະຊາກອນທີ່ມີການໃຊ້ຈ່າຍໃນຄົວເຮືອນຢ່າງຫຼວງຫຼາຍຕໍ່ສຸຂະພາບເປັນສ່ວນແບ່ງຂອງການໃຊ້ຈ່າຍຂອງຄົວເຮືອນທັງ ໝົດ ຫຼືລາຍໄດ້",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-8-2",
+          "status": "complete"
         },
         {
           "id": "3-9-2",
@@ -147,7 +235,39 @@
           "description": "",
           "keywords": "",
           "href": "/site/3-9-2",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "3-9-3",
+          "title": "ອັດຕາການຕາຍແມ່ນຍ້ອນການເປັນພິດໂດຍເຈດຕະນາ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-9-3",
+          "status": "complete"
+        },
+        {
+          "id": "3-a-1",
+          "title": "ອັດຕາສ່ວນຂອງການ ນຳ ໃຊ້ຢາສູບໃນປະຈຸບັນໃນກຸ່ມຜູ້ທີ່ມີອາຍຸ 15 ປີຂຶ້ນໄປ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-a-1",
+          "status": "complete"
+        },
+        {
+          "id": "3-b-2",
+          "title": "ການຊ່ວຍເຫຼືອດ້ານການພັດທະນາຢ່າງເປັນທາງການສຸດທິທັງ ໝົດ ຕໍ່ການຄົ້ນຄວ້າທາງການແພດແລະຂະ ແໜງ ສາທາລະນະສຸກຂັ້ນພື້ນຖານ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-b-2",
+          "status": "complete"
+        },
+        {
+          "id": "3-c-1",
+          "title": "ຄວາມ ໜາ ແໜ້ນ ແລະການແຈກຢາຍຂອງພະນັກງານສາທາລະນະສຸກ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/3-c-1",
+          "status": "complete"
         }]
     }
   },
