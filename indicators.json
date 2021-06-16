@@ -273,6 +273,102 @@
   },
   {
     "goal": {
+      "id": "4",
+      "title": "ຮັບປະກັນການສຶກສາທີ່ມີຄຸນນະພາບແບບລວມແລະເທົ່າທຽມກັນແລະສົ່ງເສີມໂອກາດການຮຽນຮູ້ຕະຫຼອດຊີວິດ ສຳ ລັບທຸກຄົນ",
+      "indicators": [
+        
+        {
+          "id": "4-1-1",
+          "title": "ອັດຕາສ່ວນເດັກນ້ອຍແລະຊາວ ໜຸ່ມ (ກ) ໃນຊັ້ນຮຽນ 2/3; (b) ໃນຕອນທ້າຍຂອງປະຖົມ; ແລະ (c) ໃນຕອນທ້າຍຂອງມັດທະຍົມຕອນປາຍທີ່ບັນລຸໄດ້ຢ່າງ ໜ້ອຍ ລະດັບຄວາມສາມາດຕ່ ຳ ສຸດໃນ (i) ການອ່ານແລະ (ii) ຄະນິດສາດ, ໂດຍເພດ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "4-1-2",
+          "title": "global_indicators.4-1-2-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-1-2",
+          "status": "complete"
+        },
+        {
+          "id": "4-1-6",
+          "title": "global_indicators.4-1-6-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-1-6",
+          "status": "complete"
+        },
+        {
+          "id": "4-2-3",
+          "title": "global_indicators.4-2-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-2-3",
+          "status": "complete"
+        },
+        {
+          "id": "4-3-3",
+          "title": "global_indicators.4-3-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-3-3",
+          "status": "complete"
+        },
+        {
+          "id": "4-3-4",
+          "title": "global_indicators.4-3-4-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-3-4",
+          "status": "complete"
+        },
+        {
+          "id": "4-5-1-a",
+          "title": "global_indicators.4-5-1-a-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-5-1-a",
+          "status": "complete"
+        },
+        {
+          "id": "4-5-1-b",
+          "title": "global_indicators.4-5-1-b-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-5-1-b",
+          "status": "complete"
+        },
+        {
+          "id": "4-6-1",
+          "title": "ອັດຕາສ່ວນຂອງພົນລະເມືອງໃນເກນອາຍຸໃດ ໜຶ່ງ ທີ່ບັນລຸຢ່າງ ໜ້ອຍ ໃນລະດັບຄົງທີ່ຂອງທັກສະໃນການເຮັດວຽກ (ກ) ການຮູ້ ໜັງ ສືແລະ (ຂ) ທັກສະດ້ານການຄິດໄລ່ເລກ, ໂດຍເພດ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-6-1",
+          "status": "complete"
+        },
+        {
+          "id": "4-b-1",
+          "title": "ບໍລິມາດຂອງກະແສການຊ່ວຍເຫຼືອດ້ານການພັດທະນາຢ່າງເປັນທາງການ ສຳ ລັບທຶນການສຶກສາຕາມຂະ ແໜງ ການແລະປະເພດການສຶກສາ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-b-1",
+          "status": "complete"
+        },
+        {
+          "id": "4-c-1",
+          "title": "ອັດຕາສ່ວນຂອງຄູໃນ: (ກ) ກ່ອນປະຖົມສຶກສາ; (b) ປະຖົມ; (c) ມັດທະຍົມຕອນປາຍ; ແລະ (ງ) ການສຶກສາຊັ້ນມັດທະຍົມຕອນປາຍຜູ້ທີ່ໄດ້ຮັບການຝຶກອົບຮົມຄູຢ່າງຕ່ ຳ ທີ່ສຸດ (ຕ. ຢ.",
+          "description": "",
+          "keywords": "",
+          "href": "/site/4-c-1",
+          "status": "complete"
+        }]
+    }
+  },
+  {
+    "goal": {
       "id": "5",
       "title": "ບັນລຸຄວາມສະ ເໝີ ພາບລະຫວ່າງຍິງ - ຊາຍແລະສ້າງຄວາມເຂັ້ມແຂງໃຫ້ແກ່ແມ່ຍິງແລະເດັກຍິງທຸກຄົນ",
       "indicators": [
