@@ -395,7 +395,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/8-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-2-1",
@@ -403,7 +403,31 @@
           "description": "",
           "keywords": "",
           "href": "/site/8-2-1",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "8-3-1",
+          "title": "ອັດຕາສ່ວນຂອງການຈ້າງງານທີ່ບໍ່ເປັນທາງການໃນການຈ້າງງານນອກກະສິ ກຳ, ໂດຍເພດ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-3-1",
+          "status": "complete"
+        },
+        {
+          "id": "8-3-2",
+          "title": "global_indicators.8-3-2-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-3-2",
+          "status": "complete"
+        },
+        {
+          "id": "8-3-3",
+          "title": "global_indicators.8-3-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-3-3",
+          "status": "complete"
         },
         {
           "id": "8-5-1",
@@ -411,7 +435,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/8-5-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-5-2",
@@ -419,7 +443,23 @@
           "description": "",
           "keywords": "",
           "href": "/site/8-5-2",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "8-5-3",
+          "title": "global_indicators.8-5-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-5-3",
+          "status": "complete"
+        },
+        {
+          "id": "8-5-4",
+          "title": "global_indicators.8-5-4-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-5-4",
+          "status": "complete"
         },
         {
           "id": "8-6-1",
@@ -427,7 +467,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/8-6-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-7-1",
@@ -435,7 +475,47 @@
           "description": "",
           "keywords": "",
           "href": "/site/8-7-1",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "8-7-2",
+          "title": "global_indicators.8-7-2-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-7-2",
+          "status": "complete"
+        },
+        {
+          "id": "8-8-1",
+          "title": "ອັດຕາຄວາມຖີ່ຂອງການບາດເຈັບທີ່ເປັນແຮງງານແລະບໍ່ແມ່ນຄວາມຕາຍ, ໂດຍເພດແລະສະພາບການອົບພະຍົບ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-8-1",
+          "status": "complete"
+        },
+        {
+          "id": "8-9-1",
+          "title": "ການທ່ອງທ່ຽວໂດຍກົງຂອງ GDP ແມ່ນອັດຕາສ່ວນຂອງ GDP ທັງ ໝົດ ແລະໃນລະດັບເຕີບໂຕ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-9-1",
+          "status": "complete"
+        },
+        {
+          "id": "8-9-3",
+          "title": "global_indicators.8-9-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-9-3",
+          "status": "complete"
+        },
+        {
+          "id": "8-a-1",
+          "title": "ການຊ່ວຍເຫຼືອ ສຳ ລັບ ຄຳ ໝັ້ນ ສັນຍາທາງດ້ານການຄ້າແລະການເບີກຈ່າຍ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/8-a-1",
+          "status": "complete"
         }]
     }
   },

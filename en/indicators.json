@@ -395,7 +395,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/en/8-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-2-1",
@@ -403,7 +403,31 @@
           "description": "",
           "keywords": "",
           "href": "/site/en/8-2-1",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "8-3-1",
+          "title": "Proportion of informal employment in non‐agriculture employment, by sex",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-3-1",
+          "status": "complete"
+        },
+        {
+          "id": "8-3-2",
+          "title": "global_indicators.8-3-2-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-3-2",
+          "status": "complete"
+        },
+        {
+          "id": "8-3-3",
+          "title": "global_indicators.8-3-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-3-3",
+          "status": "complete"
         },
         {
           "id": "8-5-1",
@@ -411,7 +435,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/en/8-5-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-5-2",
@@ -419,7 +443,23 @@
           "description": "",
           "keywords": "",
           "href": "/site/en/8-5-2",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "8-5-3",
+          "title": "global_indicators.8-5-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-5-3",
+          "status": "complete"
+        },
+        {
+          "id": "8-5-4",
+          "title": "global_indicators.8-5-4-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-5-4",
+          "status": "complete"
         },
         {
           "id": "8-6-1",
@@ -427,7 +467,7 @@
           "description": "",
           "keywords": "",
           "href": "/site/en/8-6-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-7-1",
@@ -435,7 +475,47 @@
           "description": "",
           "keywords": "",
           "href": "/site/en/8-7-1",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "8-7-2",
+          "title": "global_indicators.8-7-2-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-7-2",
+          "status": "complete"
+        },
+        {
+          "id": "8-8-1",
+          "title": "Frequency rates of fatal and non-fatal occupational injuries, by sex and migrant status",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-8-1",
+          "status": "complete"
+        },
+        {
+          "id": "8-9-1",
+          "title": "Tourism direct GDP as a proportion of total GDP and in growth rate",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-9-1",
+          "status": "complete"
+        },
+        {
+          "id": "8-9-3",
+          "title": "global_indicators.8-9-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-9-3",
+          "status": "complete"
+        },
+        {
+          "id": "8-a-1",
+          "title": "Aid for Trade commitments and disbursements",
+          "description": "",
+          "keywords": "",
+          "href": "/site/en/8-a-1",
+          "status": "complete"
         }]
     }
   },
