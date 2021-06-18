@@ -550,6 +550,94 @@
       "indicators": [
         
         {
+          "id": "17-1-1",
+          "title": "ລາຍໄດ້ທັງ ໝົດ ຂອງລັດຖະບານເປັນສັດສ່ວນຂອງ GDP, ຕາມແຫຼ່ງ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "17-1-2",
+          "title": "ອັດຕາສ່ວນຂອງງົບປະມານພາຍໃນທີ່ໄດ້ຮັບການສະ ໜັບ ສະ ໜູນ ຈາກພາສີພາຍໃນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-1-2",
+          "status": "complete"
+        },
+        {
+          "id": "17-3-1",
+          "title": "ການລົງທືນໂດຍກົງຈາກຕ່າງປະເທດ (FDI), ການຊ່ວຍເຫລືອດ້ານການພັດທະນາຢ່າງເປັນທາງການແລະການຮ່ວມມືໃຕ້ - ໃຕ້ເປັນອັດຕາສ່ວນຂອງງົບປະມານພາຍໃນທັງ ໝົດ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-3-1",
+          "status": "complete"
+        },
+        {
+          "id": "17-6-1",
+          "title": "ຈຳ ນວນຂໍ້ຕົກລົງການຮ່ວມມືດ້ານວິທະຍາສາດແລະ / ຫຼືເຕັກໂນໂລຢີລະຫວ່າງປະເທດ, ໂດຍປະເພດການຮ່ວມມື",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-6-1",
+          "status": "complete"
+        },
+        {
+          "id": "17-7-1",
+          "title": "ຈຳ ນວນເງິນທັງ ໝົດ ທີ່ໄດ້ຮັບການອະນຸມັດ ສຳ ລັບບັນດາປະເທດ ກຳ ລັງພັດທະນາເພື່ອສົ່ງເສີມການພັດທະນາ, ຖ່າຍທອດ, ເຜີຍແຜ່ແລະການແຜ່ກະຈາຍຂອງເຕັກໂນໂລຢີທີ່ເປັນມິດກັບສິ່ງແວດລ້ອມ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-7-1",
+          "status": "complete"
+        },
+        {
+          "id": "17-8-1",
+          "title": "ອັດຕາສ່ວນຂອງບຸກຄົນທີ່ ນຳ ໃຊ້ອິນເຕີເນັດ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-8-1",
+          "status": "complete"
+        },
+        {
+          "id": "17-8-2",
+          "title": "global_indicators.17-8-2-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-8-2",
+          "status": "complete"
+        },
+        {
+          "id": "17-8-3",
+          "title": "global_indicators.17-8-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-8-3",
+          "status": "complete"
+        },
+        {
+          "id": "17-11-1",
+          "title": "ສ່ວນປະເທດ ກຳ ລັງພັດທະນາແລະສ່ວນ ໜ້ອຍ ຂອງປະເທດທີ່ພັດທະນາແລ້ວໃນການສົ່ງອອກທົ່ວໂລກ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-11-1",
+          "status": "complete"
+        },
+        {
+          "id": "17-19-2",
+          "title": "ອັດຕາສ່ວນຂອງປະເທດທີ່ (a) ໄດ້ ດຳ ເນີນການ ສຳ ຫຼວດພົນລະເມືອງແລະທີ່ຢູ່ອາໄສຢ່າງ ໜ້ອຍ ໜຶ່ງ ຄັ້ງໃນ 10 ປີທີ່ຜ່ານມາ; ແລະ (ຂ) ບັນລຸການຂຶ້ນທະບຽນ 100 ເປີເຊັນແລະການຂຶ້ນທະບຽນເສຍຊີວິດ 80 ເປີເຊັນ",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-19-2",
+          "status": "complete"
+        },
+        {
+          "id": "17-19-3",
+          "title": "global_indicators.17-19-3-title",
+          "description": "",
+          "keywords": "",
+          "href": "/site/17-19-3",
+          "status": "complete"
+        },
+        {
           "id": "17-19-2a",
           "title": "global_indicators.17-19-2a-title",
           "description": "",
