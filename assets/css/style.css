@@ -2716,3 +2716,6 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
 
 #main-content .goal-tiles .no-gutters img#goal-18:hover {
   box-shadow: 5px 5px 5px 0px rgba(5, 5, 5, 0.6); }
+
+#main-content .goal-tiles .no-gutters img#goal-18 {
+  background-color: white; }
