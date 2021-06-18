@@ -55,7 +55,7 @@
         },
         {
           "id": "2-1-4",
-          "title": "global_indicators.2-1-4-title",
+          "title": "ການຜະລິດອາຫານ [2.1.4]",
           "description": "",
           "keywords": "",
           "href": "/site/2-1-4",
@@ -287,7 +287,7 @@
         },
         {
           "id": "4-1-2",
-          "title": "global_indicators.4-1-2-title",
+          "title": "ອັດຕາຄວາມສໍາເລັດ, ໂດຍເພດ, ສະຖານທີ່, ຄວາມຮັ່ງມີ quintile ແລະລະດັບການສຶກສາ (%) [4.1.2]",
           "description": "",
           "keywords": "",
           "href": "/site/4-1-2",
@@ -295,7 +295,7 @@
         },
         {
           "id": "4-1-6",
-          "title": "global_indicators.4-1-6-title",
+          "title": "ເດັກນ້ອຍທີ່ມີອາຍຸເກີນເກນສໍາລັບຄະແນນ",
           "description": "",
           "keywords": "",
           "href": "/site/4-1-6",
@@ -303,7 +303,7 @@
         },
         {
           "id": "4-2-3",
-          "title": "global_indicators.4-2-3-title",
+          "title": "ອັດຕາການເຂົ້າຮຽນໃນໄວເດັກGross",
           "description": "",
           "keywords": "",
           "href": "/site/4-2-3",
@@ -311,7 +311,7 @@
         },
         {
           "id": "4-3-3",
-          "title": "global_indicators.4-3-3-title",
+          "title": "ອັດຕາການມີສ່ວນຮ່ວມໃນໂຄງການສຶກສາເຕັກນິກ-ວິຊາຊີບ (ອາຍຸ 15-24 ປີ)",
           "description": "",
           "keywords": "",
           "href": "/site/4-3-3",
@@ -319,7 +319,7 @@
         },
         {
           "id": "4-3-4",
-          "title": "global_indicators.4-3-4-title",
+          "title": "ເປີເຊັນຊັ້ນມັດທະຍົມຕອນຕົ້ນ/ຊັ້ນມັດທະຍົມຕອນຕົ້ນໄດ້ລົງທະບຽນເຂົ້າຮຽນວິຊາຊີບ &ໂຮງຮຽນຝຶກອົບຮົມ",
           "description": "",
           "keywords": "",
           "href": "/site/4-3-4",
@@ -327,7 +327,7 @@
         },
         {
           "id": "4-5-1-a",
-          "title": "global_indicators.4-5-1-a-title",
+          "title": "ແຈ້ງການຄວາມເປັນມາຂອງເພດສໍາລັບການລົງທະບຽນgross",
           "description": "",
           "keywords": "",
           "href": "/site/4-5-1-a",
@@ -335,7 +335,7 @@
         },
         {
           "id": "4-5-1-b",
-          "title": "global_indicators.4-5-1-b-title",
+          "title": "ລາຍລະອຽດຄວາມເປັນພາຄີທາງເພດສໍາລັບການສໍາເລັດ",
           "description": "",
           "keywords": "",
           "href": "/site/4-5-1-b",
@@ -471,7 +471,7 @@
         },
         {
           "id": "8-3-2",
-          "title": "global_indicators.8-3-2-title",
+          "title": "ເປີເຊັນຂອງການເງິນແລະການກູ້ຢືມທີ່ອອກໃຫ້ SMEs",
           "description": "",
           "keywords": "",
           "href": "/site/8-3-2",
@@ -479,7 +479,7 @@
         },
         {
           "id": "8-3-3",
-          "title": "global_indicators.8-3-3-title",
+          "title": "ຈໍາ ນວນ SME ທີ່ ເປັນ ເຈົ້າ ຂອງ ໂດຍ ພົນ ລະ ເມືອງ ລາວ (ກັບ ປະ ຊາ ຊົນ ລາວ ເປັນ ຜູ້ ຖື ຮຸ້ນ ສ່ວນ ໃຫຍ່)",
           "description": "",
           "keywords": "",
           "href": "/site/8-3-3",
@@ -503,7 +503,7 @@
         },
         {
           "id": "8-5-3",
-          "title": "global_indicators.8-5-3-title",
+          "title": "ທຸລະກິດທີ່ເປັນເຈົ້າຂອງເພດຍິງ",
           "description": "",
           "keywords": "",
           "href": "/site/8-5-3",
@@ -511,7 +511,7 @@
         },
         {
           "id": "8-5-4",
-          "title": "global_indicators.8-5-4-title",
+          "title": "ສ່ວນແບ່ງຂອງບຸກຄົນທີ່ມີວຽກເຮັດງານທໍາໃນຂະແຫນງການບໍ່ເປັນທາງການ",
           "description": "",
           "keywords": "",
           "href": "/site/8-5-4",
@@ -535,7 +535,7 @@
         },
         {
           "id": "8-7-2",
-          "title": "global_indicators.8-7-2-title",
+          "title": "ຈໍານວນເດັກນ້ອຍອາຍຸ 5-17 ປີ ມີສ່ວນຮ່ວມໃນອາຊີບ ແລະ ວຽກງານທີ່ເປັນອັນຕະລາຍທີ່ຫ້າມ, ໂດຍເພດ ແລະ ອາຍຸ",
           "description": "",
           "keywords": "",
           "href": "/site/8-7-2",
@@ -559,7 +559,7 @@
         },
         {
           "id": "8-9-3",
-          "title": "global_indicators.8-9-3-title",
+          "title": "ການຈັດຕັ້ງປະຕິບັດມາດຕະຖານການທ່ອງທ່ຽວ (1=ເພື່ອຮັບເອົາ ແລະ ຈັດຕັ້ງປະຕິບັດ)",
           "description": "",
           "keywords": "",
           "href": "/site/8-9-3",
@@ -591,7 +591,7 @@
         },
         {
           "id": "13-3-3",
-          "title": "global_indicators.13-3-3-title",
+          "title": "ຈໍານວນແຂວງທີ່ມີຄວາມສາມາດໃນການລາຍງານສະພາບການປ່ຽນແປງດິນຟ້າອາກາດ",
           "description": "",
           "keywords": "",
           "href": "/site/13-3-3",
@@ -655,7 +655,7 @@
         },
         {
           "id": "17-8-2",
-          "title": "global_indicators.17-8-2-title",
+          "title": "ເປີເຊັນຂອງປະຊາກອນທີ່ຈົດທະບຽນເປັນຜູ້ໃຊ້ອິນເຕີເນັດໂດຍຜ່ານສາຍດິນແລະໄຮ້ສາຍ",
           "description": "",
           "keywords": "",
           "href": "/site/17-8-2",
@@ -663,7 +663,7 @@
         },
         {
           "id": "17-8-3",
-          "title": "global_indicators.17-8-3-title",
+          "title": "ເປີເຊັນຂອງຜູ້ໃຊ້ໂທລະສັບມືຖືທີ່ມີອິນເຕີເນັດ.",
           "description": "",
           "keywords": "",
           "href": "/site/17-8-3",
@@ -687,7 +687,7 @@
         },
         {
           "id": "17-19-3",
-          "title": "global_indicators.17-19-3-title",
+          "title": "ຈໍານວນທະບຽນຜູ້ເສຍຊີວິດທີ່ບັນທຶກໄວ້",
           "description": "",
           "keywords": "",
           "href": "/site/17-19-3",
@@ -711,7 +711,7 @@
         
         {
           "id": "18-1-1",
-          "title": "global_indicators.18-1-1-title",
+          "title": "ຈໍາ ນວນ ຜູ້ ເສຍ ຊີ ວິດ UXO ທີ່ ໄດ້ ຮັບ ການ ລາຍ ງານ (disaggated by age group and sex)- ໄດ້ ຮັບ ບາດ ເຈັບ [18.1.1 ]",
           "description": "",
           "keywords": "",
           "href": "/site/18-1-1",
@@ -719,7 +719,7 @@
         },
         {
           "id": "18-1-2",
-          "title": "global_indicators.18-1-2-title",
+          "title": "ເປີເຊັນຂອງປະຊາກອນໃນຫມູ່ບ້ານທີ່ເປິເປື້ອນທີ່ມີຂໍ້ມູນກ່ຽວກັບເຂດອັນຕະລາຍທີ່ໄດ້ຮັບການຢືນຢັນໃນຫມູ່ບ້ານຂອງເຂົາເຈົ້າ (ບໍ່ສັງລວມໂດຍກຸ່ມອາຍຸ, ເພດແລະບຸກຄົນທີ່ມີຄວາມພິການ) [18.1.2 ]",
           "description": "",
           "keywords": "",
           "href": "/site/18-1-2",
@@ -727,7 +727,7 @@
         },
         {
           "id": "18-2-1",
-          "title": "global_indicators.18-2-1-title",
+          "title": "ເປີເຊັນຂອງພື້ນທີ່ອັນຕະລາຍທີ່ສໍາຄັນສູງທີ່ຍັງເຫຼືອທີ່ຈະແຈ້ງ (ບໍ່ສັງລວມຕາມລະດັບຄວາມທຸກຍາກຂອງຫມູ່ບ້ານ) [18.2.1]",
           "description": "",
           "keywords": "",
           "href": "/site/18-2-1",
@@ -735,7 +735,7 @@
         },
         {
           "id": "18-2-2",
-          "title": "global_indicators.18-2-2-title",
+          "title": "ຈໍານວນຫມູ່ບ້ານທີ່ຖືກກໍານົດວ່າເປັນ 'ຄົນທຸກຍາກ' ກັບເຂດອັນຕະລາຍທີ່ໄດ້ຮັບການຢືນຢັນທີ່ຍັງເຫຼືອທີ່ຈະແຈ້ງ [18.2.2 ]",
           "description": "",
           "keywords": "",
           "href": "/site/18-2-2",
@@ -743,7 +743,7 @@
         },
         {
           "id": "18-3-1",
-          "title": "global_indicators.18-3-1-title",
+          "title": "ອັດຕາສ່ວນຂອງຜູ້ລອດຊີວິດUXO ອາຍຸທີ່ເຄື່ອນໄຫວທີ່ລົງທະບຽນບໍ່ສາມາດຫາລາຍໄດ້ພຽງພໍກັບການເຂົ້າເຖິງຄວາມປອດໄພດ້ານລາຍຮັບພື້ນຖານ [18.3.1 ]",
           "description": "",
           "keywords": "",
           "href": "/site/18-3-1",
@@ -751,7 +751,7 @@
         },
         {
           "id": "18-3-2",
-          "title": "global_indicators.18-3-2-title",
+          "title": "ເປີເຊັນຂອງຜູ້ລອດຊີວິດ UXO ທີ່ໄດ້ຈົດທະບຽນເປັນຫຼັກໃນການບໍລິການດ້ານສຸຂະພາບ, ການສຶກສາ ແລະ ການຈ້າງງານ [18.3.2 ]",
           "description": "",
           "keywords": "",
           "href": "/site/18-3-2",
