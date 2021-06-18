@@ -2668,3 +2668,9 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
     margin-right: 10px; }
   .layout-data-editor .config-widgets .data-grid-buttons #add-column {
     margin-top: 0; }
+
+#main-content .goal-tiles .no-gutters img#goal-18 {
+  box-shadow: 5px 5px 5px 0px rgba(5, 5, 5, 0.3); }
+
+#main-content .goal-tiles .no-gutters img#goal-18:hover {
+  box-shadow: 5px 5px 5px 0px rgba(5, 5, 5, 0.6); }
