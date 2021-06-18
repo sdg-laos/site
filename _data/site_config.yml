@@ -58,8 +58,8 @@ data_fields:
   series: SERIES
 date_formats: []
 disclaimer:
-  phase: EXAMPLE
-  message: This site is an unofficial example for demonstrational purposes only.
+  phase: ''
+  message: ''
 email_contacts:
   questions: test@example.com
   suggestions: test@example.com
