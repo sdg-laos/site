@@ -1,5 +1,5 @@
 ﻿analytics:
   ga_prod: ''
 environment: production
-goal_image_base: /assets/img/goals
-remote_data_prefix: 'https://sustainabledevelopment-laos.github.io/data/'
+goal_image_base: /sdg/assets/img/goals
+remote_data_prefix: '/sdg-data/'
