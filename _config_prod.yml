@@ -4,5 +4,5 @@
 # _data/site_config_prod.yml
 # This "site_config_prod.yml" file contains differences from "site_config.yml".
 
-baseurl: ""
+baseurl: "/sdg"
 environment: production
