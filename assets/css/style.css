@@ -2719,3 +2719,6 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
 
 #main-content .goal-tiles .no-gutters img#goal-18 {
   background-color: white; }
+
+#national img, #global img {
+  max-width: 100%; }
