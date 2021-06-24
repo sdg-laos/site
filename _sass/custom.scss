@@ -10,3 +10,10 @@
 #main-content .goal-tiles .no-gutters img#goal-18 {
     background-color: $backgroundColor;
 }
+
+// This needs to be moved to Open SDG.
+#national, #global {
+    img {
+        max-width: 100%;
+    }
+}
