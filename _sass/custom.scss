@@ -39,6 +39,10 @@
     padding-right: 0;
 }
 
-body.language-lo {
+body.language-lo, .language-option-lo {
     font-family: 'Phetsarath_OT';
+}
+
+.language-option-en {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
