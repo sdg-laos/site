@@ -2736,5 +2736,8 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
   background: none;
   padding-right: 0; }
 
-body.language-lo {
+body.language-lo, .language-option-lo {
   font-family: 'Phetsarath_OT'; }
+
+.language-option-en {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
