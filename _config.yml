@@ -4,7 +4,7 @@
 # _data/site_config.yml
 
 # Tell the Remote Theme plugin to use the Open SDG platform (Jekyll theme).
-remote_theme: open-sdg/open-sdg@1.4.0-dev
+remote_theme: brockfanning/open-sdg@language-switcher-classes
 
 # Replace this title as needed.
 title: general.site_title
