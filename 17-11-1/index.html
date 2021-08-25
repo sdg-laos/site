@@ -123,28 +123,25 @@ var translations = {
         <script src="/site/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        <!-- Favicons ================================================== -->
-        <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/site/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/site/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
-        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
-        -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/site/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/site/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/site/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/site/assets/img/favicons/favicon.ico" />
+
 
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210824011237">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="/site/assets/css/style.css?v=20210825011435">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
-
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
 
     </head>
 <body class="language-lo
@@ -224,7 +221,7 @@ data-event-label="high"
 
     <div class="search-and-desktop-widgets">
       <div id="search" class="menu-target">
-  <form action="/site/search">
+  <form action="/site/search/">
     <label class="sr-only" for="indicator_search">ຄົ້ນຫາ</label>
     <input type="text" name="q" id="indicator_search" title="ຄົ້ນຫາ" /><!--
     --><button aria-label="ຄົ້ນຫາ" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
@@ -351,7 +348,7 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="search-mobile" aria-expanded="false">ຄົ້ນຫາ</button>
         <div id="search-mobile" class="menu-target">
-  <form action="/site/search">
+  <form action="/site/search/">
     <label class="sr-only" for="indicator_search-mobile">ຄົ້ນຫາ</label>
     <input type="text" name="q" id="indicator_search-mobile" title="ຄົ້ນຫາ" /><!--
     --><button aria-label="ຄົ້ນຫາ" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
@@ -423,7 +420,7 @@ data-event-label="high"
 </script>
 
 <script type="text/template" id="units_template">
-  <% if(units.length) { %>
+  
     <h4>ຫົວ ໜ່ວຍ ວັດແທກ</h4>
     <fieldset>
       <legend class="sr-only">ຫົວ ໜ່ວຍ ວັດແທກ</legend>
@@ -432,11 +429,11 @@ data-event-label="high"
         <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
       <% }); %>
     </fieldset>
-  <% } %>
+  
 </script>
 
 <script type="text/template" id="series_template">
-  <% if(serieses.length) { %>
+  
     <h4>ຊຸດ</h4>
     <fieldset>
       <legend class="sr-only">ຊຸດ</legend>
@@ -445,7 +442,7 @@ data-event-label="high"
         <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
       <% }); %>
     </fieldset>
-  <% } %>
+  
 </script>
 
 <script>translations['indicator'] = {"annotation_2030_target":"ເປົ້າ ໝາຍ ປີ 2030","announce_data_added":"ຕາຕະລາງແລະຕາຕະລາງທີ່ຖືກປັບປຸງເພື່ອປະກອບມີຂໍ້ມູນ.","announce_data_not_available":"ຕາຕະລາງແລະຕາຕະລາງບໍ່ມີຂໍ້ມູນ.","announce_data_removed":"ຕາຕະລາງແລະຕາຕະລາງຖືກປັບປຸງເພື່ອຍົກເວັ້ນຂໍ້ມູນ.","chart":"ຕາຕະລາງ","chart_annotation":"ຄຳ ບັນຍາຍຕາຕະລາງ","clear_all":"ລ້າງທຸກຢ່າງ","clear_selections":"ເລືອກທີ່ຈະແຈ້ງ","data_keyboard_navigation":"ກົດເຂົ້າເພື່ອຄົ້ນຫາຈຸດຂໍ້ມູນດ້ວຍປຸ່ມລູກສອນຊ້າຍແລະຂວາ.","data_not_available":"ຂໍ້ມູນນີ້ບໍ່ມີ. ກະລຸນາເລືອກຂໍ້ມູນທາງເລືອກເພື່ອສະແດງ.","data_tabular_alternative":"ສຳ ລັບຕົວເລືອກຂໍ້ມູນຕາຕະລາງເບິ່ງຕາຕະລາງຕາຕະລາງ.","dataset_size_warning":"ມີຊຸດຂໍ້ມູນຫຼາຍເກີນໄປທີ່ຈະສະແດງໃນຕາຕະລາງ. ບໍ່ແມ່ນທັງ ໝົດ ຈະຖືກສະແດງຈົນກວ່າທ່ານຈະເລືອກບາງຕົວເລືອກ.","download_chart":"ດາວໂຫລດຕາຕະລາງ CSV","download_chart_image":"ດາວໂຫລດຮູບພາບຕາຕະລາງ","download_chart_image_title":"ດາວໂຫລດຕາຕະລາງເປັນຮູບພາບ","download_csv":"ດາວໂຫລດ CSV","download_csv_title":"ດາວໂຫລດເປັນ CSV","download_geojson":"ດາວໂຫລດ GeoJSON","download_geojson_title":"ດາວໂຫລດເປັນ GeoJSON","download_headline":"ດາວໂຫລດຫົວເລື່ອງ CSV","download_headline_title":"ດາວໂຫລດຂໍ້ມູນຫົວຂໍ້ເປັນ CSV","download_source":"ແຫລ່ງດາວໂຫລດ CSV","download_source_sdmx":"ແຫລ່ງດາວໂຫລດ SDMX","download_source_sdmx_title":"ດາວໂຫລດຂໍ້ມູນແຫຼ່ງທີ່ເປັນ SDMX","download_source_title":"ດາວໂຫລດຂໍ້ມູນແຫຼ່ງຂໍ້ມູນເປັນ CSV","download_table":"ດາວໂຫລດຕາຕະລາງ CSV","edit":"ແກ້ໄຂ","edit_configuration":"ແກ້ໄຂການຕັ້ງຄ່າ","edit_data":"ແກ້ໄຂຂໍ້ມູນ","edit_metadata":"ແກ້ໄຂເມຕາເດຕາ","footnote":"ໝາຍ ເຫດ","geographical_area":"ເຂດພູມສາດ","global_metadata":"Metadata ທົ່ວໂລກ","global_metadata_blurb":"ຕາຕະລາງນີ້ສະ ໜອງ ຂໍ້ມູນກ່ຽວກັບຂໍ້ມູນ metadata ສຳ ລັບຕົວຊີ້ວັດ SDG ຕາມທີ່ ກຳ ນົດໂດຍຄະນະ ກຳ ມະການສະຖິຕິຂອງສະຫະປະຊາຊາດ. <a href=\"https://unstats.un.org/sdgs/metadata/\"> ຂໍ້ມູນ metadata ທົ່ວໂລກ </a> ແມ່ນໃຫ້ໂດຍພະແນກສະຖິຕິຂອງສະຫະປະຊາຊາດ.","legend_help":"ກົດທີ່ເທບນິຍາຍເພື່ອ ກຳ ນົດເສັ້ນສ່ວນຕົວອອກຈາກຕາຕະລາງ.","loading":"ກຳ ລັງໂຫລດ","loading_map":"ກຳ ລັງໂຫລດແຜນທີ່","map":"ແຜນທີ່","map_search":"ຄົ້ນຫາ","map_search_hide":"ເຊື່ອງການຄົ້ນຫາ","map_search_show":"ສະແດງການຄົ້ນຫາ","map_year_slider":"ແຖບເລື່ອນປີ","national_metadata":"Metadata ແຫ່ງຊາດ","national_metadata_blurb":"ຕາຕະລາງນີ້ສະ ໜອງ metadata ສຳ ລັບຕົວຊີ້ວັດຕົວຈິງທີ່ມີຈາກສະຖິຕິ% country_name ທີ່ຢູ່ໃກ້ກັບຕົວຊີ້ວັດ SDG ທົ່ວໂລກທີ່ສອດຄ້ອງກັນ. ກະລຸນາຮັບຊາບວ່າເຖິງແມ່ນວ່າຕົວຊີ້ວັດ SDG ທົ່ວໂລກສາມາດ ນຳ ໃຊ້ໄດ້ຢ່າງເຕັມສ່ວນຈາກສະຖິຕິ% country_adjective, ຕາຕະລາງນີ້ຄວນໄດ້ຮັບການປຶກສາຫາລືກ່ຽວກັບຂໍ້ມູນກ່ຽວກັບວິທີການແຫ່ງຊາດແລະຂໍ້ມູນ metadata ອື່ນໆ% country_adjective.","next":"ຕົວຊີ້ວັດຕໍ່ໄປ","no_data_hint":"ບໍ່ມີທາງເລືອກໃດໆເພາະຕົວກອງຂ້າງເທິງ","plot_legend_description":"ນິທານເລື່ອງດິນຕອນ: ບັນຊີລາຍຊື່ຂອງສາຍລວມຢູ່ໃນຕາຕະລາງ","previous":"ຕົວຊີ້ວັດທີ່ຜ່ານມາ","select_all":"ເລືອກທັງຫມົດ","series":"ຊຸດ","series_help":"ເລືອກປະເພດຕ່າງໆຈາກແບບເລື່ອນລົງລຸ່ມເພື່ອເບິ່ງລາຍລະອຽດຕ່າງໆຂອງຂໍ້ມູນ. ບາງບ່ອນຈະບໍ່ສາມາດໃຊ້ໄດ້ຈົນກວ່າລະດັບທີ່ສູງກວ່າຈະຖືກຄັດເລືອກ.","source":"ແຫຼ່ງຂໍ້ມູນ","sources":"ແຫຼ່ງຂໍ້ມູນ","status":"ສະຖານະພາບຕົວຊີ້ວັດ","sub_categories":"ປະເພດຍ່ອຍ","sub_categories_show":"ສະແດງ ໝວດ ຍ່ອຍ:","table":"ຕາຕະລາງ","table_column_sort":"ກົດເພື່ອຈັດຮຽງຕາມຖັນນີ້","tags":"ປ້າຍ","unit":"ຫົວໜ່ວຍ","unit_of_measurement":"ຫົວ ໜ່ວຍ ວັດແທກ","units_type":"ປະເພດຫົວ ໜ່ວຍ","variable_hint":"ສາມາດໃຊ້ໄດ້ເມື່ອ '% field' ຖືກເລືອກ","view_indicator_list":"ເບິ່ງລາຍການຕົວຊີ້ວັດຂອງເປົ້າ ໝາຍ ນີ້"};</script>
@@ -511,6 +508,7 @@ data-event-label="high"
   data-charttitle="ສ່ວນປະເທດ ກຳ ລັງພັດທະນາແລະສ່ວນ ໜ້ອຍ ຂອງປະເທດທີ່ພັດທະນາແລ້ວໃນການສົ່ງອອກທົ່ວໂລກ"
   data-charttitles="null"
   data-measurementunit=""
+  data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
@@ -766,7 +764,7 @@ data-event-label="Change to Table tab"
 <script>
 // Add a chart alteration to support the chart_graph_limits metadata field.
 opensdg.chartConfigAlter(function(config, info) {
-  if (info.graphLimits && info.graphLimits.length > 0) {
+  if (info.graphLimits && Object.keys(info.graphLimits).length > 0) {
     var overrides = {
       options: {
         scales: {
@@ -1684,18 +1682,51 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+<script >
+  function initialiseGoogleAnalytics(){
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    sendPageviewToGoogleAnalytics();
+}
+
+function sendPageviewToGoogleAnalytics(){
+    ga('create', '', 'auto');
+    ga('require', 'eventTracker', {
+        attributePrefix: 'data-'
+    });
+    // anonymize user IPs (chops off the last IP triplet)
+    ga('set', 'anonymizeIp', true);
+    // forces SSL even if the page were somehow loaded over http://
+    ga('set', 'forceSSL', true);
+    ga('send', 'pageview');
+}
+
+
+
+</script>
+
+
+  
+
+
 <script>translations['general'] = translations['general'] || {};
     translations['general']['hide'] = 'ຊ່ອນ';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'ຄົ້ນຫາ';</script>
 
-<script src='/site/assets/js/sdg.js?v=20210824011237'></script>
+<script src='/site/assets/js/sdg.js?v=20210825011435'></script>
 
 
     
     
-    <script src="/site/assets/js/custom.js?v=20210824011237"></script><script>
+    <script src="/site/assets/js/custom.js?v=20210825011435"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1728,6 +1759,7 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
+              xAxisLabel: domData.xaxislabel,
               showData: domData.showdata,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
@@ -1762,8 +1794,6 @@ $(function() {
 
 });
 </script>
-
-
 
 
 </body>

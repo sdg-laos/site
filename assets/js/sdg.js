@@ -995,7 +995,6 @@ var accessibilitySwitcher = function() {
 
   function imageFix(contrast) {
     var doNotSwitchTheseSuffixes = ['.svg'];
-    var doNotSwitchThesePrefixes = ['https://platform-cdn.sharethis.com/'];
     if (contrast == 'high')  {
       _.each($('img:not([src*=high-contrast])'), function(image) {
         var src = $(image).attr('src').toLowerCase();
@@ -1003,12 +1002,6 @@ var accessibilitySwitcher = function() {
         for (var i = 0; i < doNotSwitchTheseSuffixes.length; i++) {
           var suffix = doNotSwitchTheseSuffixes[i];
           if (src.slice(0 - suffix.length) === suffix) {
-            switchThisImage = false;
-          }
-        }
-        for (var i = 0; i < doNotSwitchThesePrefixes.length; i++) {
-          var prefix = doNotSwitchThesePrefixes[i];
-          if (src.slice(0, prefix.length) === prefix) {
             switchThisImage = false;
           }
         }
@@ -1674,40 +1667,37 @@ function getCombinationData(fieldItems) {
   });
 
   // Generate all possible subsets of these key/value pairs.
-  var powerset = [[]];
+  var powerset = [];
+  // Start off with an empty item.
+  powerset.push([]);
   for (var i = 0; i < fieldValuePairs.length; i++) {
     for (var j = 0, len = powerset.length; j < len; j++) {
-      powerset.push(powerset[j].concat(fieldValuePairs[i]));
+      var candidate = powerset[j].concat(fieldValuePairs[i]);
+      if (!hasDuplicateField(candidate)) {
+        powerset.push(candidate);
+      }
     }
   }
-  // But we require special filtering on top of this.
-  return powerset.filter(function(combinations) {
-    // We don't need the empty set.
-    if (combinations.length === 0) {
-      return false;
-    }
-    else if (combinations.length === 1) {
-      return true;
-    }
-    // We don't want any sets that include multiples of the same field.
-    // Eg, we do not need to consider a set containing both "Female" and
-    // "Male". So filter them out here.
-    else {
-      var fieldsUsed = [];
-      for (var i = 0, len = combinations.length; i < len; i++) {
-        var thisField = Object.keys(combinations[i])[0];
-        if (fieldsUsed.includes(thisField)) {
-          // Abort as soon as we find a duplicate.
-          return false;
-        }
-        else {
-          fieldsUsed.push(thisField);
-        }
+
+  function hasDuplicateField(pairs) {
+    var fields = [], i;
+    for (i = 0; i < pairs.length; i++) {
+      var field = Object.keys(pairs[i])[0]
+      if (fields.includes(field)) {
+        return true;
       }
-      return true;
+      else {
+        fields.push(field);
+      }
     }
-  }).map(function(combinations) {
-    // We also want to merge these into a single object.
+    return false;
+  }
+
+  // Remove the empty item.
+  powerset.shift();
+
+  return powerset.map(function(combinations) {
+    // We want to merge these into a single object.
     var combinedSubset = {};
     combinations.forEach(function(keyValue) {
       Object.assign(combinedSubset, keyValue);
@@ -2443,6 +2433,7 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
     getDataBySeries: getDataBySeries,
     getDataBySelectedFields: getDataBySelectedFields,
     getUnitFromStartValues: getUnitFromStartValues,
+    getSeriesFromStartValues: getSeriesFromStartValues,
     selectFieldsFromStartValues: selectFieldsFromStartValues,
     selectMinimumStartingFields: selectMinimumStartingFields,
     fieldsUsedByUnit: fieldsUsedByUnit,
@@ -2500,6 +2491,7 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
   this.chartTitles = options.chartTitles;
   this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
+  this.xAxisLabel = options.xAxisLabel;
   this.startValues = options.startValues;
   this.showData = options.showData;
   this.selectedFields = [];
@@ -2655,7 +2647,7 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
         var startingUnit = this.selectedUnit;
         if (this.hasStartValues) {
           var unitInStartValues = helpers.getUnitFromStartValues(this.startValues);
-          if (unitInStartValues) {
+          if (unitInStartValues && this.units.includes(unitInStartValues)) {
             startingUnit = unitInStartValues;
           }
         }
@@ -3100,7 +3092,9 @@ var indicatorView = function (model, options) {
       selectedUnit: selectedUnit
     }));
 
-    if(!units.length) {
+    
+    if (units.length < 1) {
+    
       $(this._rootElement).addClass('no-units');
     }
   };
@@ -3117,7 +3111,9 @@ var indicatorView = function (model, options) {
         selectedSeries: selectedSeries
       }));
 
-      if(!serieses.length) {
+      
+      if (serieses.length < 1) {
+      
         $(this._rootElement).addClass('no-serieses');
       }
     }
@@ -3240,6 +3236,13 @@ var indicatorView = function (model, options) {
             ticks: {
               fontColor: tickColor,
             },
+            scaleLabel: {
+              display: this._model.xAxisLabel ? true : false,
+              labelString: this._model.xAxisLabel,
+              fontColor: tickColor,
+              fontSize: 14,
+              fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
+            }
           }],
           yAxes: [{
             gridLines: {
@@ -3258,6 +3261,8 @@ var indicatorView = function (model, options) {
               display: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
               labelString: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
               fontColor: tickColor,
+              fontSize: 14,
+              fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
             }
           }]
         },
@@ -4106,6 +4111,9 @@ $(function() {
   if (typeof translations.general === 'undefined') {
     translations.general = { hide: 'Hide' };
   }
+  if (typeof translations.cookies === 'undefined') {
+    translations.cookies = { cookie_settings: 'Cookie settings' };
+  }
   // @deprecated end
 
   var topLevelSearchLink = $('.top-level span:eq(1), .top-level button:eq(1)');
@@ -4196,6 +4204,9 @@ $(function() {
     // update the viewport width:
     $('body').data('vwidth', viewportWidth);
   });
+
+  // Add the cookie settings link in the footer.
+  
 });
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 "document"in self&&("classList"in document.createElement("_")&&(!document.createElementNS||"classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))||!function(t){"use strict";if("Element"in t){var e="classList",n="prototype",i=t.Element[n],s=Object,r=String[n].trim||function(){return this.replace(/^\s+|\s+$/g,"")},o=Array[n].indexOf||function(t){for(var e=0,n=this.length;n>e;e++)if(e in this&&this[e]===t)return e;return-1},a=function(t,e){this.name=t,this.code=DOMException[t],this.message=e},c=function(t,e){if(""===e)throw new a("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(e))throw new a("INVALID_CHARACTER_ERR","String contains an invalid character");return o.call(t,e)},l=function(t){for(var e=r.call(t.getAttribute("class")||""),n=e?e.split(/\s+/):[],i=0,s=n.length;s>i;i++)this.push(n[i]);this._updateClassName=function(){t.setAttribute("class",""+this)}},u=l[n]=[],h=function(){return new l(this)};if(a[n]=Error[n],u.item=function(t){return this[t]||null},u.contains=function(t){return t+="",-1!==c(this,t)},u.add=function(){var t,e=arguments,n=0,i=e.length,s=!1;do t=e[n]+"",-1===c(this,t)&&(this.push(t),s=!0);while(++n<i);s&&this._updateClassName()},u.remove=function(){var t,e,n=arguments,i=0,s=n.length,r=!1;do for(t=n[i]+"",e=c(this,t);-1!==e;)this.splice(e,1),r=!0,e=c(this,t);while(++i<s);r&&this._updateClassName()},u.toggle=function(t,e){t+="";var n=this.contains(t),i=n?e!==!0&&"remove":e!==!1&&"add";return i&&this[i](t),e===!0||e===!1?e:!n},u.toString=function(){return this.join(" ")},s.defineProperty){var f={get:h,enumerable:!0,configurable:!0};try{s.defineProperty(i,e,f)}catch(g){(void 0===g.number||-2146823252===g.number)&&(f.enumerable=!1,s.defineProperty(i,e,f))}}else s[n].__defineGetter__&&i.__defineGetter__(e,h)}}(self),function(){"use strict";var t=document.createElement("_");if(t.classList.add("c1","c2"),!t.classList.contains("c2")){var e=function(t){var e=DOMTokenList.prototype[t];DOMTokenList.prototype[t]=function(t){var n,i=arguments.length;for(n=0;i>n;n++)t=arguments[n],e.call(this,t)}};e("add"),e("remove")}if(t.classList.toggle("c3",!1),t.classList.contains("c3")){var n=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(t,e){return 1 in arguments&&!this.contains(t)==!e?e:n.call(this,t)}}t=null}());/*! modernizr 3.5.0 (Custom Build) | MIT *
@@ -4535,6 +4546,7 @@ $(function() {
       var container = L.Control.Search.prototype.onAdd.call(this, map);
 
       this._input.setAttribute('aria-label', this._input.placeholder);
+      this._tooltip.setAttribute('aria-label', this._input.placeholder);
 
       this._button.setAttribute('role', 'button');
       this._accessibleCollapse();
@@ -4549,6 +4561,26 @@ $(function() {
 
       return container;
     },
+    _createInput: function (text, className) {
+      var input = L.Control.Search.prototype._createInput.call(this, text, className);
+      input.setAttribute('aria-autocomplete', 'list');
+      input.setAttribute('aria-controls', 'map-search-listbox');
+      var combobox = L.DomUtil.create('div', '', this._container);
+      combobox.setAttribute('role', 'combobox');
+      combobox.setAttribute('aria-expanded', 'false');
+      combobox.setAttribute('aria-owns', 'map-search-listbox');
+      combobox.setAttribute('aria-haspopup', 'listbox');
+      combobox.id = 'map-search-combobox';
+      combobox.append(input);
+      this._combobox = combobox;
+      return input;
+    },
+    _createTooltip: function(className) {
+      var tooltip = L.Control.Search.prototype._createTooltip.call(this, className);
+      tooltip.id = 'map-search-listbox';
+      tooltip.setAttribute('role', 'listbox');
+      return tooltip;
+    },
     _accessibleExpand: function() {
       this._accessibleDescription(translations.indicator.map_search_hide);
       this._button.setAttribute('aria-expanded', 'true');
@@ -4556,6 +4588,7 @@ $(function() {
     _accessibleCollapse: function() {
       this._accessibleDescription(translations.indicator.map_search_show);
       this._button.setAttribute('aria-expanded', 'false');
+      this._button.focus();
     },
     _accessibleDescription: function(description) {
       this._button.title = description;
@@ -4574,13 +4607,25 @@ $(function() {
     cancel: function() {
       L.Control.Search.prototype.cancel.call(this);
       this._accessibleExpand();
+      this._combobox.setAttribute('aria-expanded', 'false');
+      this._input.removeAttribute('aria-activedescendant');
       return this;
     },
     showTooltip: function(records) {
       L.Control.Search.prototype.showTooltip.call(this, records);
       this._accessibleDescription(translations.indicator.map_search);
       this._button.removeAttribute('aria-expanded');
+      this._combobox.setAttribute('aria-expanded', 'true');
+      if (this._countertips > 0) {
+        this._input.setAttribute('aria-activedescendant', this._tooltip.childNodes[0].id);
+      }
       return this._countertips;
+    },
+    _createTip: function(text, val) {
+      var tip = L.Control.Search.prototype._createTip.call(this, text, val);
+      tip.setAttribute('role', 'option');
+      tip.id = 'map-search-option-' + val.layer.feature.properties.geocode;
+      return tip;
     },
     _handleSubmit: function(e) {
       // Prevent the enter key from immediately collapsing the search bar.
@@ -4589,6 +4634,19 @@ $(function() {
       }
       L.Control.Search.prototype._handleSubmit.call(this, e);
     },
+    _handleArrowSelect: function(velocity) {
+      L.Control.Search.prototype._handleArrowSelect.call(this, velocity);
+      var searchTips = this._tooltip.hasChildNodes() ? this._tooltip.childNodes : [];
+			for (i=0; i<searchTips.length; i++) {
+			  searchTips[i].setAttribute('aria-selected', 'false');
+      }
+      var selectedTip = searchTips[this._tooltip.currentSelection];
+      if (typeof selectedTip === 'undefined') {
+        selectedTip = searchTips[0];
+      }
+      selectedTip.setAttribute('aria-selected', 'true');
+      this._input.setAttribute('aria-activedescendant', selectedTip.id);
+    },
     _createAlert: function(className) {
       var alert = L.Control.Search.prototype._createAlert.call(this, className);
       alert.setAttribute('role', 'alert');
@@ -4596,28 +4654,6 @@ $(function() {
     }
   });
 }());
-function initialiseGoogleAnalytics(){
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    sendPageviewToGoogleAnalytics();
-}
-
-function sendPageviewToGoogleAnalytics(){
-    ga('create', '', 'auto');
-    ga('require', 'eventTracker', {
-        attributePrefix: 'data-'
-    });
-    // anonymize user IPs (chops off the last IP triplet)
-    ga('set', 'anonymizeIp', true);
-    // forces SSL even if the page were somehow loaded over http://
-    ga('set', 'forceSSL', true);
-    ga('send', 'pageview');
-}
-
-
 $(document).ready(function() {
     $('a[href="#top"]').prepend('<i class="fa fa-arrow-up"></i>');
 });
